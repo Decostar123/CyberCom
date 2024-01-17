@@ -1,0 +1,42 @@
+
+table{
+    border-collapse: collapse;
+    margin : 0;
+    border:  double;
+    border-bottom: solid ;
+    
+}
+div{
+    display:absolute; 
+    top:0;left:0;bottom:0;right:0;margin:auto;
+    width: fit-content;
+   }
+th,td{
+    border : 2px solid black ; 
+    vertical-align: top ;
+    padding: 10px ;
+   
+}
+
+ul{
+    list-style-type: disc;
+}
+
+h4{
+    margin:0;
+}
+.green{
+    background-color: lawngreen;
+}
+.blue{
+  background-color: aquamarine;
+}
+.grey{
+  background-color: beige;
+}
+.pink{
+  background-color:  pink;
+}
+.yellow{
+  background-color: yellow  ;
+}
