@@ -1,0 +1,38 @@
+.inner{
+     width:215px ; 
+     height:315px ; 
+     display : flex ; 
+     align-items: center ; 
+     justify-content: center ;
+     background-color: black;
+     margin-bottom:0;
+     
+}
+.outer{
+    display: flex ; 
+    gap:20px ;  
+}
+.caption p {
+    text-align: center ;
+    margin : 0 ;
+    padding:10px ; 
+    
+}
+.text{
+    color : white  ; 
+}
+.caption{
+    background-color: gray;
+    margin-top : 0  ;
+}
+
+.content{
+    padding-top:20px ; 
+    word-wrap: break-word;
+    text-align: center;
+}
+.box{
+    width:920px ; 
+    /* border : 12px solid red ; */
+    word-wrap: break-word;
+}

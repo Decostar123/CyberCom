@@ -1,0 +1,16 @@
+th,td{
+    border: 1px solid black;
+    padding : 5px ; 
+}
+
+
+.tbl{
+  
+    border-collapse: collapse;
+    text-align: center;
+}
+.tble{
+    border : 2px solid black ; 
+    padding : 3px ; 
+    border-style: outset ;
+}
