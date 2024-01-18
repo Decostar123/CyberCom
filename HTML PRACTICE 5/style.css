@@ -1,0 +1,75 @@
+#contactUS{
+    width:100% ; 
+    height : 150px ; 
+    padding:0 ; 
+}
+.mainImage{
+    width:30px ; 
+    height:25px ; 
+
+}
+#mainForm{
+    width:fit-content ; 
+    border:0px solid red ;
+    padding:25px;
+}
+.mainInput{
+    display: flex ;
+    width: 650px;
+    padding:15px;
+    border : 2px solid #f1e4e4  ; 
+    margin:20px ; 
+   
+}
+.submitBtn{
+    display: flex ;
+    width: 650px;
+    padding:15px;
+    
+    margin:20px ;
+    justify-content: center;
+
+}
+.submitBtn button{
+    width: 160px;
+    padding: 15px;
+    border-radius: 20px;
+    border: 0;
+    color: white;
+    background-color: #8d7bdd;
+    font-weight: bold;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.mainInput textarea{
+    border : 0 ;
+    border:0;
+    margin-left:20px  ; 
+    width:100% ; 
+    padding:5px  ; 
+    height:200px ; 
+}
+
+.formInput{
+    border : 0 ;
+    border:0;
+    margin-left:20px  ; 
+    width:100% ; 
+    padding:5px  ; 
+  
+}
+::placeholder{
+    color : #e2dddd ;
+    font-size:20px ; 
+    opacity: 1;
+    padding :auto 0 ; 
+}
+#box{
+   
+    width:fit-content;
+    position:absolute ; 
+    top:5px;bottom:0;right:0;left:0;
+    margin:auto; 
+
+}
+
+
