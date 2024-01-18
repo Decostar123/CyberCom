@@ -1,0 +1,58 @@
+
+form{
+    width : 80% ; 
+}
+select{
+    margin-left: 150px;
+    margin-bottom: 10px;
+}
+input{
+    margin-left: 150px;
+    margin-bottom: 10px;
+}
+.round{
+    border-radius: 5px;
+}
+textarea{
+    margin-left: 150px;
+    margin-bottom: 10px;
+}
+label{
+    display: inline-block;
+    width:190px;    
+}
+#quantity{
+    width:115px ; 
+    border-right: 0;
+    margin-right:0;
+    
+    outline: none;
+}
+.textArea{
+    display : flex ; 
+    width:fit-content;
+}
+.Car{
+    border-radius: 5px;
+    width:100px ; 
+}
+.submission{
+    display : flex ; 
+    width:fit-content;
+    padding-top:10px; 
+}
+.submission input{
+
+    width : 100px ; 
+    border-radius: 12px ;
+    height  : 30px ; 
+}
+input[type=number]::-webkit-inner-spin-button {
+-webkit-appearance: none;
+}
+select{
+  appearance: none;
+ -webkit-appearance: none;
+ -moz-appearance: none;
+}
+

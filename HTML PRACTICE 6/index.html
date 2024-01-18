@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <form action="./Success.html" id="submitForm">
+        <fieldset>
+            <legend>Your address</legend>
+            <label>First name</label>
+            <input type="text"/>
+            <br>
+            <label>Last name</label>
+            <input type="text"/>
+            <br>
+            <label>Street</label>
+            <input type="text"/>
+            <br>
+            <label>City</label>
+            <input type="text"/>
+            
+
+        </fieldset>
+        <fieldset>
+            <legend>Additional details</legend>
+            <div class="textArea">
+                <label>Biography</label>
+                <textarea></textarea>
+            </div>
+            <br>
+            <label>Image</label>
+            <input class="round" type="file"/>
+            <br>
+            <label>Age Group</label>
+            
+            <input class="round" type="number" placeholder="0 to 9 yeas" id="quantity" name="quantity" min="1" max="5">⏫
+
+  
+  
+           
+            
+
+        </fieldset>
+        <fieldset>
+            <legend>Interests</legend>
+            <div class="textArea">
+                <label>Hobies</label> 
+            <select form="submitForm" size="4">
+                <option>Playing soccer</option>
+                <option>Dancing</option>
+                <option>Gardening</option>
+                <option>Watching movies</option>
+
+            </select>
+            
+            </div>
+            
+            <label>Favourite car?</label>
+            <input class="round" type="text" placeholder="Volvo" class="Car" >⏫
+            <br>
+           <div class="textArea">
+            <label>Favourite public transport?</label>
+            <select class="transport" size="7">
+                <optgroup label="Ground">
+                  <option>Train</option>
+                  <option>Bus</option>
+                </optgroup>
+                <optgroup label="Water">
+                  <option>Ship</option>
+                  <option>Airboat</option>
+                  <option>Hovecraft</option>
+                </optgroup>
+              </select>
+           </div>
+        </fieldset>
+        <div class="submission" >
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+</body>
+</html>
