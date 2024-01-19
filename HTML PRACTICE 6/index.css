@@ -1,6 +1,7 @@
 
+
 form{
-    width : 80% ; 
+    width : 100% ; 
 }
 select{
     margin-left: 150px;
@@ -34,7 +35,7 @@ label{
 }
 .Car{
     border-radius: 5px;
-    width:100px ; 
+    width: 77px ; 
 }
 .submission{
     display : flex ; 
@@ -50,9 +51,20 @@ label{
 input[type=number]::-webkit-inner-spin-button {
 -webkit-appearance: none;
 }
-select{
+.transport{
+    width:108px ; 
+}
+select[name="transport"],select[name="hobby"]{
   appearance: none;
  -webkit-appearance: none;
  -moz-appearance: none;
+ overflow: hidden ;
 }
 
+#box{
+    position: absolute ; 
+    width: fit-content;
+    left: 0%;right: 0%; top : 0 ; bottom: 0 ; 
+    margin : auto ; 
+    top: 10px ; 
+}
