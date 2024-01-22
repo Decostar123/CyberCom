@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  .container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #999; */
+  }
+  
+  .main-form {
+    background-color: rgba(240, 240, 240, 0.5);
+    border: 2px solid rgba(200, 200, 200, 1);
+  }
+  
+  .main-form fieldset {
+    margin: 20px;
+    border: none;
+  }
+  img {
+    height: 12px;
+    width: 12px;
+    margin-left: 3px;
+  }
+  select {
+    font-size: 12px;
+  }
+  
+  p {
+    font-size: 10px;
+    color: #999;
+  }
+  
+  legend {
+    font-weight: bold;
+  }
+  
+  table tr td:nth-child(1) {
+    font-size: 12px;
+    width: 150px;
+    /* border: 1px solid black; */
+    text-align: right;
+    padding: 5px 20px;
+    vertical-align: top;
+  }
+  
+  input,
+  select[name="gender"],
+  select[name="state"],
+  select[name="sequrityQ"] {
+    width: 200px;
+  }
+  
+  .small {
+    width: 50px;
+  }
+  .medium {
+    width: 100px;
+  }
+  
+  .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  button {
+    height: 20px;
+    width: 70px;
+    margin: 5px;
+  }

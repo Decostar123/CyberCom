@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div id="container" >
+        <form id="booking" >
+            <label class="names" for="first">First Name</label>
+            <input type="text" name="firstName" id="firstName">
+            <br>
+            <label class="names" for="phone">Phone Number</label>
+            <input type="text" name="phoneNumber" id="phone">
+            <br>
+            <label class="names" for="mail">EMail</label>
+            <input type="text" name="mail" id="mail">
+            <br>
+            <label class="names" >Gender</label>
+            <input type="radio" name="gender" value="male" id="male" > <label for="male">Male</label>
+            <input type="radio" name="gender" value="female" id="female" ><label for="female">Female</label>
+            <br>
+            <label class="names" for="seatQuantity">Number Of Seats </label>
+            <input type="text" name="seatQuantity" id="seatQuantity">
+            <br>
+           
+            <label class="names" for="DOB">Select DOB </label>
+            <input type="date" name="DOB" id="DOB" >
+            <br>
+            <input type="submit" name="submit">
+            <br>
+
+            <div id="incorrect">
+                <p id="incorrectFirstName"> </p>
+                <p id="incorrectPhoneNumber"></p>
+                <p id="incorrectMail"></p>
+                <p id="incorrectGender"></p>
+                <p id="incorrectSeatQuantity"></p>
+                <p id="incorrectDOB"></p>
+
+            </div>
+            <div id="correct">
+                <p id="correctDeatils"></p>
+            </div>
+        </form>
+        
+    </div>
+    <script src="./index.js"></script>
+    
+</body>
+</html>
