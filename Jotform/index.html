@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+    <style>
+        *{
+            border:0;
+            margin:0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+        body{
+            background-color: #f3f3fe;
+        }
+        #box{
+            /* background-color: aqua; */
+            background-color: white;
+            width:800px ; 
+            height:fit-content ; 
+            position: absolute;
+            top:80px;bottom:0 ; right:0 ; left:0 ; 
+            margin : auto ; 
+            z-index: 5;
+            margin-top: 20px ; 
+            margin-bottom:20px ; 
+           
+        }
+        #first-box{
+            width: 800px ;
+            border-bottom:1px solid gray ; 
+            
+        }
+        h1{
+            width: inherit; 
+            padding: 50px;
+        }
+
+        .required{
+            color : red ;
+        }
+        #second-box{
+            margin: 0 50px ;
+            display: flex;
+            flex-direction: column;
+            gap:40px ; 
+            margin-top:40px ; 
+        }
+        #gender{
+           
+        }
+        #gender-label{
+            margin-bottom:10px ; 
+            font-size: 16px;
+        }
+        #gender-select{
+            width: 330px ;
+            height: 45px;
+            border: 1px solid gray;
+            outline: none;
+            font-size: 16px;
+            border-radius: 5px;
+            padding-left: 5px;       
+
+        }
+        #first-name-input{
+           
+            height: 45px;
+            border: 1px solid gray;
+            outline: none;
+            font-size: 16px;
+            border-radius: 5px;
+            padding-left: 5px; 
+            width:330px ;   
+            margin-right:40px ; 
+        }
+        #last-name-input{
+           
+           height: 45px;
+           border: 1px solid gray;
+           outline: none;
+           font-size: 16px;
+           border-radius: 5px;
+           padding-left: 5px;   
+           width:330px ;   
+       }
+       #name-box{
+        display : flex ; 
+       }
+       #patient-name{
+       
+       }
+       #name p{
+        margin-bottom: 10px;
+       }
+       .small{
+        margin-top:10px ;
+        font-size:12px ; 
+        color : gray;
+       }
+       #DOB p{
+        margin-bottom: 10px;
+       }
+     
+       .DOB-input{
+        height: 45px;
+           border: 1px solid gray;
+           outline: none;
+           font-size: 16px;
+           border-radius: 5px;
+            width:230px ;
+       }
+       #height p{
+        margin-bottom: 10px;
+       }
+       #height-input{
+        height: 45px;
+           border: 1px solid gray;
+           outline: none;
+           font-size: 16px;
+           border-radius: 5px;
+           padding-left: 5px;   
+           width:330px ;   
+           padding-left:5px ; 
+       }
+       #weight p{
+        margin-bottom: 10px;
+       }
+       #weight-input{
+        height: 45px;
+           border: 1px solid gray;
+           outline: none;
+           font-size: 16px;
+           border-radius: 5px;
+           padding-left: 5px;   
+           width:330px ;   
+           padding-left:5px ; 
+       }
+       #reason p{
+        margin-bottom: 10px;
+       }
+       #reason-input{
+        height: 45px;
+           border: 1px solid gray;
+           outline: none;
+           font-size: 16px;
+           border-radius: 5px;
+           padding-left: 5px;   
+           width:330px ;   
+           padding-left:5px ; 
+       }
+       #mail{
+        display:flex ; 
+        flex-direction: column;
+       }
+       #mail p{
+        margin-bottom: 10px;
+       }
+       #mail-input{
+        height: 45px;
+           border: 1px solid gray;
+           outline: none;
+           font-size: 16px;
+           border-radius: 5px;
+           padding-left: 5px;   
+           width:330px ;   
+           padding-left:5px ; 
+       }
+       #history{
+        font-size:20px ; 
+        font-weight: bold ;
+        padding:20px  ; 
+        border-bottom: 1px solid grey  ;
+        padding-left:0;
+        
+       }
+       #allergy p{
+        margin-bottom: 10px;
+       }
+       #allergy textarea{
+        height:150px ; 
+        width : 100% ; 
+        border:2px solid gray ; 
+        outline : none  ; 
+        border-radius : 5px ; 
+       }
+       #drug-select-options{
+        display : flex  ;
+        flex-direction: column;
+        gap:10px ; 
+        margin-top:10px ; 
+       }
+       #drug-select-options span{
+        position: relative;
+       }
+       #drug-select-options input{
+       
+        width:15px ;  
+        height : 15px  ; 
+        margin-right:10px  ; 
+       }
+       #drug-select-options label{
+        font-size:15px ; 
+        position:absolute;
+       }
+       #illness p{
+        margin-bottom: 10px;
+       }
+       #illness input{
+        height: 45px;
+           border: 1px solid gray;
+           outline: none;
+           font-size: 16px;
+           border-radius: 5px;
+           padding-left: 5px;   
+           width:330px ;   
+           padding-left:5px ; 
+       }
+       #operations p{
+        margin-bottom: 10px;
+       }
+       #operations textarea{
+        height:150px ; 
+        width : 100% ; 
+        border:2px solid gray ; 
+        outline : none  ; 
+        border-radius : 5px ; 
+       }
+       #medications p{
+        margin-bottom: 10px;
+       }
+       #medications textarea{
+        height:150px ; 
+        width : 100% ; 
+        border:2px solid gray ; 
+        outline : none  ; 
+        border-radius : 5px ; 
+       }
+       #habits{
+        font-size:20px ; 
+        font-weight: bold ;
+        padding:20px  ; 
+        border-bottom: 1px solid grey  ;
+        padding-left:0;
+        
+       }
+
+
+       .habits-options{
+        display : flex  ;
+        flex-direction: column;
+        gap:10px ; 
+        margin-top:10px ; 
+       }
+       .habits-options p{
+        font-size: 15px ;
+       }
+       .habits-options span{
+        position: relative;
+       }
+       .habits-options input{
+       
+        width:15px ;  
+        height : 15px  ; 
+        margin-right:10px  ; 
+       }
+       .habits-options label{
+        font-size:15px ; 
+        position:absolute;
+       }
+      
+       #medical-history p{
+        margin-bottom: 10px;
+       }
+       #medical-history textarea{
+        height:150px ; 
+        width : 100% ; 
+        border:2px solid gray ; 
+        outline : none  ; 
+        border-radius : 5px ; 
+       }
+       input[tppe=submit]{
+        background-color: green ; ;
+       }
+    </style>
+    
+</head>
+<body>
+    <form id="box">
+        <div id="first-box">
+            <h1>General Patient Information</h1>
+        </div>
+        <div id="second-box">
+            <div id="gender">
+                <p id="gender-label" >Patient Gender <span class="required">*</span></p> 
+                <select name="gender" id="gender-select">
+                    <option value >Please Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div id="name">
+                <p id="patient-name">Patient Name <span class="required" >*</span></p>
+                <div id="name-box">
+                    <div id="first-name">
+                        <input name="first-name" id="first-name-input" >
+                        <legend class='small' for="first-name-input">First Name</legend>
+                    </div>
+                    <div id="last-name">
+                        <input name="last-name" id="last-name-input" >
+                        <legend class='small' for="last-name-input">Last Name</legend>
+                    </div>
+
+                </div>
+                
+            </div>
+            <div id="DOB">
+                <p id="DOB-label">Patient Birth Date <span class="required">*</span></p>
+                <select class="DOB-input" name="month" id="month"  >
+                        <option value >Please Select a month</option>
+                </select>
+                <select class="DOB-input" name="day" id="day"  >
+                    <option value >Please Select a day</option>
+                </select>
+                <select class="DOB-input" name="year" id="year">
+                    <option>Pkease Select a year</option>
+                </select>
+               
+            </div>
+            <div id="height">
+                <p>Patient Height (cm's) <span class="required">*</span></p>
+                <input placeholder="ex: 176" id="height-input">
+            </div>
+            <div id="weight">
+                <p>Patient Weight (kg's) <span class="required">*</span></p>
+                <input placeholder="ex: 176" id="weight-input">
+            </div>
+            <div id="mail">
+                <p>Email<span class="required">*</span></p>
+                <input placeholder="ex: 176" id="mail-input">
+                <legend class='small' for="first-name-input">example@example.com</legend>
+            </div>
+            <div id="reason">
+                <p>Reason for seeing the doctor<span class="required">*</span></p>
+                <input placeholder="ex: 176" id="reason-input">
+            </div>
+            
+            <p id="history">Patient Medical History</p>
+            
+            <div id="allergy">
+                <p>Please list any drug allergies</p>
+                <textarea></textarea>
+            </div>
+            <div id="drug-select">
+                <p>Have you ever had (Please check all that apply) </p> 
+                <div id="drug-select-options">
+                    <span>
+                        <input type="checkbox" name="drug" id="Anemia"> <label for="Anemia">Anemia</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" name="drug" id="Asthma"> <label for="Anemia">Asthma</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" name="drug" id="Cancer"> <label for="Anemia">Cancer</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" name="drug" id="Gout"> <label for="Anemia">Gout</label>
+                    </span>
+                    
+                
+                </div>
+            </div>
+            <div id="illness">
+                <p>Other Illness</p>
+                <input placeholder="ex: 176" id="weight-input">
+            </div>
+            <div id="operations">
+                <p>Please list any Operations and Dates of Each</p>
+                <textarea></textarea>
+            </div>
+            <div id="medications">
+                <p>Please list your Current Medications</p>
+                <textarea></textarea>
+            </div>
+            <p id="habits">Healthy & Unhealthy Habits</p>
+            <div class="general-habits">
+                <p>Exercise</p> 
+                <div class="habits-options">
+                    <span>
+                        <input type="radio" name="drug" id="Never"> <label for="Never">Never</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="drug" id="one"> <label for="one">1-2 days</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="drug" id="three"> <label for="three">3-4 days</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="drug" id="five"> <label for="five">5+ days</label>
+                    </span>
+                    
+                
+                </div>
+            </div>
+            <div class="general-habits">
+                <p>Alcohol Consumption </p> 
+                <div class="habits-options">
+                    <span>
+                        <input type="radio" name="drug" id="one"> <label for="one">I don't drink</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="drug" id="two"> <label for="two">1-2 glasses/day</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="drug" id="three"> <label for="three">3-4 glasses/day</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="drug" id="four"> <label for="three">5+ glasses/day</label>
+                    </span>
+                    
+                
+                </div>
+            </div>
+            <div class="general-habits">
+                <p>Exercise</p> 
+                <div class="habits-options">
+                    <span>
+                        <input type="radio" name="drug" id="Never"> <label for="Never">Never</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="drug" id="one"> <label for="one">1-2 days</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="drug" id="three"> <label for="three">3-4 days</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="drug" id="five"> <label for="five">5+ days</label>
+                    </span>
+                    
+                
+                </div>
+            </div>
+            <div class="general-habits">
+                <p>Do you smoke?</p> 
+                <div class="habits-options">
+                    <span>
+                        <input type="radio" name="drug" id="one"> <label for="Never">Never</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="drug" id="two"> <label for="one">0-1 packs/day</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="drug" id="three"> <label for="three">1-2 days</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="drug" id="four"> <label for="five">2+ days</label>
+                    </span>
+                    
+                
+                </div>
+            </div>
+            <div id="medical-history">
+                <p>Include other comments regarding your Medical History</p>
+                <textarea></textarea>
+            </div>
+
+            <div id="reason">
+                <p>Please list your     <span class="required">*</span></p>
+                <input placeholder="ex: 176" id="reason-input">
+            </div>
+        </div>
+        <input type="submit" >
+    </form>
+    <script>
+          const months = [ "January", "February", "March", "April",
+    "May", "June", "July", "August","September", "October", "November", "December"];
+    for( ele of months){
+        const child = `<option value=${ele}>${ele}</option>` ; 
+        $("#month").append( child ) ; 
+    }
+    for( let i = 1 ; i <=30 ; i++){
+        const child = `<option value=${i}>${i}</option>` ; 
+        $("#day").append( child ) ; 
+    }
+    for( let i = 2024 ; i >= 1929 ; i--){
+        const child = `<option value=${i}>${i}</option>` ; 
+        $("#year").append( child ) ; 
+    }
+    </script>
+</body>
+</html>
