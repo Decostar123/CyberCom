@@ -1,364 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script
-  src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script>
-    <style>
-        *{
-            border:0;
-            margin:0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-            
-        }
-        body{
-            background-color: #f3f3fe;
-        }
-        #box{
-            /* background-color: aqua; */
-            background-color: white;
-            width:800px ; 
-            height:fit-content ; 
-            position: absolute;
-            top:80px;bottom:0 ; right:0 ; left:0 ; 
-            margin : auto ; 
-            z-index: 5;
-            margin-top: 20px ; 
-            margin-bottom:20px ; 
-           
-        }
-        #first-box{
-            width: 800px ;
-            border-bottom:1px solid gray ; 
-            
-        }
-        h1{
-            width: inherit; 
-            padding: 50px;
-        }
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-        .required{
-            color : red ;
-        }
-        #second-box{
-            margin: 0 50px ;
-            display: flex;
-            flex-direction: column;
-            gap:40px ; 
-            margin-top:40px ; 
-        }
-        #gender{
-           
-        }
-        #gender-label{
-            margin-bottom:10px ; 
-            font-size: 16px;
-        }
-        #gender-select{
-            width: 330px ;
-            height: 45px;
-            border: 1px solid gray;
-            outline: none;
-            font-size: 16px;
-            border-radius: 5px;
-            padding-left: 5px;       
+    <link rel="stylesheet" href="./index.css">
+    <style> </style>
 
-        }
-        #first-name-input{
-           
-            height: 45px;
-            border: 1px solid gray;
-            outline: none;
-            font-size: 16px;
-            border-radius: 5px;
-            padding-left: 5px; 
-            width:330px ;   
-            margin-right:40px ; 
-        }
-        #last-name-input{
-           
-           height: 45px;
-           border: 1px solid gray;
-           outline: none;
-           font-size: 16px;
-           border-radius: 5px;
-           padding-left: 5px;   
-           width:330px ;   
-       }
-       #name-box{
-        display : flex ; 
-       }
-       #patient-name{
-       
-       }
-       #name p{
-        margin-bottom: 10px;
-       }
-       .small{
-        margin-top:10px ;
-        font-size:12px ; 
-        color : gray;
-       }
-       #DOB p{
-        margin-bottom: 10px;
-       }
-     
-       .DOB-input{
-        height: 45px;
-           border: 1px solid gray;
-           outline: none;
-           font-size: 16px;
-           border-radius: 5px;
-            width:230px ;
-       }
-       #height p{
-        margin-bottom: 10px;
-       }
-       #height-input{
-        height: 45px;
-           border: 1px solid gray;
-           outline: none;
-           font-size: 16px;
-           border-radius: 5px;
-           padding-left: 5px;   
-           width:330px ;   
-           padding-left:5px ; 
-       }
-       #weight p{
-        margin-bottom: 10px;
-       }
-       #weight-input{
-        height: 45px;
-           border: 1px solid gray;
-           outline: none;
-           font-size: 16px;
-           border-radius: 5px;
-           padding-left: 5px;   
-           width:330px ;   
-           padding-left:5px ; 
-       }
-       #reason p{
-        margin-bottom: 10px;
-       }
-       #reason-input{
-        height: 45px;
-           border: 1px solid gray;
-           outline: none;
-           font-size: 16px;
-           border-radius: 5px;
-           padding-left: 5px;   
-           width:330px ;   
-           padding-left:5px ; 
-       }
-       #mail{
-        display:flex ; 
-        flex-direction: column;
-       }
-       #mail p{
-        margin-bottom: 10px;
-       }
-       #mail-input{
-        height: 45px;
-           border: 1px solid gray;
-           outline: none;
-           font-size: 16px;
-           border-radius: 5px;
-           padding-left: 5px;   
-           width:330px ;   
-           padding-left:5px ; 
-       }
-       #history{
-        font-size:20px ; 
-        font-weight: bold ;
-        padding:20px  ; 
-        border-bottom: 1px solid grey  ;
-        padding-left:0;
-        
-       }
-       #allergy p{
-        margin-bottom: 10px;
-       }
-       #allergy textarea{
-        height:150px ; 
-        width : 100% ; 
-        border:2px solid gray ; 
-        outline : none  ; 
-        border-radius : 5px ; 
-       }
-       #drug-select-options{
-        display : flex  ;
-        flex-direction: column;
-        gap:10px ; 
-        margin-top:10px ; 
-       }
-       #drug-select-options span{
-        position: relative;
-       }
-       #drug-select-options input{
-       
-        width:15px ;  
-        height : 15px  ; 
-        margin-right:10px  ; 
-       }
-       #drug-select-options label{
-        font-size:15px ; 
-        position:absolute;
-       }
-       #illness p{
-        margin-bottom: 10px;
-       }
-       #illness input{
-        height: 45px;
-           border: 1px solid gray;
-           outline: none;
-           font-size: 16px;
-           border-radius: 5px;
-           padding-left: 5px;   
-           width:330px ;   
-           padding-left:5px ; 
-       }
-       #operations p{
-        margin-bottom: 10px;
-       }
-       #operations textarea{
-        height:150px ; 
-        width : 100% ; 
-        border:2px solid gray ; 
-        outline : none  ; 
-        border-radius : 5px ; 
-       }
-       #medications p{
-        margin-bottom: 10px;
-       }
-       #medications textarea{
-        height:150px ; 
-        width : 100% ; 
-        border:2px solid gray ; 
-        outline : none  ; 
-        border-radius : 5px ; 
-       }
-       #habits{
-        font-size:20px ; 
-        font-weight: bold ;
-        padding:20px  ; 
-        border-bottom: 1px solid grey  ;
-        padding-left:0;
-        
-       }
-
-
-       .habits-options{
-        display : flex  ;
-        flex-direction: column;
-        gap:10px ; 
-        margin-top:10px ; 
-       }
-       .habits-options p{
-        font-size: 15px ;
-       }
-       .habits-options span{
-        position: relative;
-       }
-       .habits-options input{
-       
-        width:15px ;  
-        height : 15px  ; 
-        margin-right:10px  ; 
-       }
-       .habits-options label{
-        font-size:15px ; 
-        position:absolute;
-       }
-      
-       #medical-history p{
-        margin-bottom: 10px;
-       }
-       #medical-history textarea{
-        height:150px ; 
-        width : 100% ; 
-        border:2px solid gray ; 
-        outline : none  ; 
-        border-radius : 5px ; 
-       }
-       input[tppe=submit]{
-        background-color: green ; ;
-       }
-    </style>
-    
 </head>
+
 <body>
+    <p id="error-names">
+        There are <span id="error-count">5</span> errors on this page. Please correct them before moving on
+    </p>
     <form id="box">
         <div id="first-box">
             <h1>General Patient Information</h1>
         </div>
         <div id="second-box">
             <div id="gender">
-                <p id="gender-label" >Patient Gender <span class="required">*</span></p> 
+                <p id="gender-label">Patient Gender <span class="required">*</span></p>
                 <select name="gender" id="gender-select">
-                    <option value >Please Select</option>
+                    <option value>Please Select</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select>
+                <p class="missing" id="gender-error">This field is required </p>
             </div>
             <div id="name">
-                <p id="patient-name">Patient Name <span class="required" >*</span></p>
+                <p id="patient-name">Patient Name <span class="required">*</span></p>
                 <div id="name-box">
                     <div id="first-name">
-                        <input name="first-name" id="first-name-input" >
-                        <legend class='small' for="first-name-input">First Name</legend>
+                        <input type="text" c name="first-name" id="first-name-input">
+                        <legend class='small' for="first-name">First Name</legend>
                     </div>
                     <div id="last-name">
-                        <input name="last-name" id="last-name-input" >
-                        <legend class='small' for="last-name-input">Last Name</legend>
+                        <input type="text" name="last-name" id="last-name-input">
+                        <legend class='small' for="last-name">Last Name</legend>
                     </div>
 
+
                 </div>
-                
+                <p class="missing" id="name-error">This field is required </p>
+
             </div>
             <div id="DOB">
                 <p id="DOB-label">Patient Birth Date <span class="required">*</span></p>
-                <select class="DOB-input" name="month" id="month"  >
-                        <option value >Please Select a month</option>
+                <select class="DOB-input" name="month" id="month">
+                    <option value>Please Select a month</option>
                 </select>
-                <select class="DOB-input" name="day" id="day"  >
-                    <option value >Please Select a day</option>
+                <select class="DOB-input" name="day" id="day">
+                    <option value>Please Select a day</option>
                 </select>
                 <select class="DOB-input" name="year" id="year">
-                    <option>Pkease Select a year</option>
+                    <option value="">Please Select a year</option>
                 </select>
-               
+                <p class="missing" id="DOB-error">This field is required </p>
+
             </div>
             <div id="height">
                 <p>Patient Height (cm's) <span class="required">*</span></p>
-                <input placeholder="ex: 176" id="height-input">
+                <input placeholder="ex: 176" name="height-input" id="height-input">
+                <p class="missing" id="height-error">This field is required </p>
             </div>
             <div id="weight">
                 <p>Patient Weight (kg's) <span class="required">*</span></p>
-                <input placeholder="ex: 176" id="weight-input">
+                <input placeholder="ex: 176" name="weight-input" id="weight-input">
+                <p class="missing" id="weight-error">This field is required </p>
             </div>
             <div id="mail">
                 <p>Email<span class="required">*</span></p>
-                <input placeholder="ex: 176" id="mail-input">
+                <input placeholder="ex: 176" name="mail-input" id="mail-input">
                 <legend class='small' for="first-name-input">example@example.com</legend>
+                <p class="missing" id="mail-error">This field is required </p>
             </div>
             <div id="reason">
                 <p>Reason for seeing the doctor<span class="required">*</span></p>
-                <input placeholder="ex: 176" id="reason-input">
+                <input placeholder="ex: 176" name="reason-input" id="reason-input">
+                <p class="missing" id="reason-error">This field is required </p>
             </div>
-            
+
             <p id="history">Patient Medical History</p>
-            
+
             <div id="allergy">
                 <p>Please list any drug allergies</p>
                 <textarea></textarea>
             </div>
             <div id="drug-select">
-                <p>Have you ever had (Please check all that apply) </p> 
+                <p>Have you ever had (Please check all that apply) </p>
                 <div id="drug-select-options">
                     <span>
                         <input type="checkbox" name="drug" id="Anemia"> <label for="Anemia">Anemia</label>
@@ -372,8 +105,8 @@
                     <span>
                         <input type="checkbox" name="drug" id="Gout"> <label for="Anemia">Gout</label>
                     </span>
-                    
-                
+
+
                 </div>
             </div>
             <div id="illness">
@@ -390,7 +123,7 @@
             </div>
             <p id="habits">Healthy & Unhealthy Habits</p>
             <div class="general-habits">
-                <p>Exercise</p> 
+                <p>Exercise</p>
                 <div class="habits-options">
                     <span>
                         <input type="radio" name="drug" id="Never"> <label for="Never">Never</label>
@@ -404,12 +137,12 @@
                     <span>
                         <input type="radio" name="drug" id="five"> <label for="five">5+ days</label>
                     </span>
-                    
-                
+
+
                 </div>
             </div>
             <div class="general-habits">
-                <p>Alcohol Consumption </p> 
+                <p>Alcohol Consumption </p>
                 <div class="habits-options">
                     <span>
                         <input type="radio" name="drug" id="one"> <label for="one">I don't drink</label>
@@ -423,12 +156,12 @@
                     <span>
                         <input type="radio" name="drug" id="four"> <label for="three">5+ glasses/day</label>
                     </span>
-                    
-                
+
+
                 </div>
             </div>
             <div class="general-habits">
-                <p>Exercise</p> 
+                <p>Exercise</p>
                 <div class="habits-options">
                     <span>
                         <input type="radio" name="drug" id="Never"> <label for="Never">Never</label>
@@ -442,12 +175,12 @@
                     <span>
                         <input type="radio" name="drug" id="five"> <label for="five">5+ days</label>
                     </span>
-                    
-                
+
+
                 </div>
             </div>
             <div class="general-habits">
-                <p>Do you smoke?</p> 
+                <p>Do you smoke?</p>
                 <div class="habits-options">
                     <span>
                         <input type="radio" name="drug" id="one"> <label for="Never">Never</label>
@@ -461,8 +194,8 @@
                     <span>
                         <input type="radio" name="drug" id="four"> <label for="five">2+ days</label>
                     </span>
-                    
-                
+
+
                 </div>
             </div>
             <div id="medical-history">
@@ -470,28 +203,174 @@
                 <textarea></textarea>
             </div>
 
-            <div id="reason">
-                <p>Please list your     <span class="required">*</span></p>
-                <input placeholder="ex: 176" id="reason-input">
-            </div>
+
         </div>
-        <input type="submit" >
+        <input type="submit" id="submit-form">
     </form>
     <script>
-          const months = [ "January", "February", "March", "April",
-    "May", "June", "July", "August","September", "October", "November", "December"];
-    for( ele of months){
-        const child = `<option value=${ele}>${ele}</option>` ; 
-        $("#month").append( child ) ; 
-    }
-    for( let i = 1 ; i <=30 ; i++){
-        const child = `<option value=${i}>${i}</option>` ; 
-        $("#day").append( child ) ; 
-    }
-    for( let i = 2024 ; i >= 1929 ; i--){
-        const child = `<option value=${i}>${i}</option>` ; 
-        $("#year").append( child ) ; 
-    }
+        const months = ["January", "February", "March", "April",
+            "May", "June", "July", "August", "September", "October", "November", "December"];
+        for (ele of months) {
+            const child = `<option value=${ele}>${ele}</option>`;
+            $("#month").append(child);
+        }
+        for (let i = 1; i <= 30; i++) {
+            const child = `<option value=${i}>${i}</option>`;
+            $("#day").append(child);
+        }
+        for (let i = 2024; i >= 1929; i--) {
+            const child = `<option value=${i}>${i}</option>`;
+            $("#year").append(child);
+        }
+
+        $("#box").submit(e => {
+            e.preventDefault();
+            alert("form submitted ");
+            var x = $("#box").serializeArray();
+            console.log(x);
+            var bookingInfo = {};
+            for (entry of x) {
+                bookingInfo[entry.name] = entry.value;
+            }
+            let errorCount = 0;
+            if (bookingInfo.gender === "") {
+                // $("#gender-select").css("border" , "2px solid red") ;
+                $("#gender-select").addClass("errorBorder");
+                // $("#gender-select").css("border", "2px solid red");
+                $("#gender-error").css('display', 'block');
+                errorCount++;
+            } else {
+                $("#gender-select").css("border", "1px solid black");
+                $("#gender-error").css('display', 'none');
+            }
+
+            if (bookingInfo["first-name"] === "" || bookingInfo["last-name"] === "") {
+                $("#name-error").css('display', 'block');
+                // $("#gender-select").addClass("error-border");
+                errorCount++;
+
+
+                
+
+
+            } else {                
+                $("#name-error").css('display', 'none');
+            }
+
+
+
+
+            if (bookingInfo["first-name"] === ""){
+                    $("#first-name-input").css("border" , "2px solid red")
+                }else{
+                    $("#first-name-input").css("border" , "1px solid black")
+                }
+
+                if (bookingInfo["last-name"] === ""){
+                    $("#last-name-input").css("border" , "2px solid red")
+                }else{
+                    $("#last-name-input").css("border" , "1px solid black")
+                }
+
+
+
+
+
+
+
+            if (bookingInfo.day === "" || bookingInfo.month === "" || bookingInfo.year === "") {
+                $("#DOB-error").css('display', 'block');
+                // $("#gender-select").addClass("error-border");
+
+                
+                errorCount++;
+            } else {
+                $("#DOB-error").css('display', 'none');
+            }
+
+
+            if (bookingInfo.day === "" ){
+                    $("#day").css("border" , "2px solid red")
+                }else{
+                    $("#day").css("border" , "1px solid black")
+                }
+                if (bookingInfo.month === "" ){
+                    $("#month").css("border" , "2px solid red")
+                }else{
+                    $("#month").css("border" , "1px solid black")
+                }
+                if (bookingInfo.year === "" ){
+                    $("#year").css("border" , "2px solid red")
+                }else{
+                    $("#year").css("border" , "1px solid black")
+                }
+
+
+
+            if (bookingInfo["height-input"] === "") {
+                console.log($("#height-input"));
+                // $("#height-input").addClass("error-border");
+                $("#height-input").css("border" , "2px solid red");
+                $("#height-error").css('display', 'block');
+                
+                errorCount++;
+                // alert(" input in thr height ")
+            } else {
+                $("#height-input").css("border" , "1px solid black");
+                $("#height-error").css('display', 'none');
+            }
+
+            if (bookingInfo["weight-input"] === "") {
+                $("#weight-error").css('display', 'block');
+                $("#weight-input").css("border" , "2px solid red");
+                errorCount++;
+            } else {
+                $("#weight-input").css("border" , "1px solid black");
+                $("#weight-error").css('display', 'none');
+            }
+
+            if (bookingInfo["mail-input"] === "") {
+                // alert("mail error ") ; 
+                $("#mail-error").css('display', 'block');
+                $("#mail-input").css( "border" , "2px solid red");
+                errorCount++;
+            } else if (!validateMail(bookingInfo["mail-input"])) {
+                // alert( " mail error ")
+                $("#mail-error").text("Invalid Email Address ");
+                $("#mail-input").css( "border" , "2px solid red");
+                $("#mail-error").css('display', 'block');
+                errorCount++;
+            } else {
+                $("#mail-input").css( "border" , "1px solid black");
+                $("#mail-error").css('display', 'none');
+            }
+
+            if (bookingInfo["reason-input"] === "") {
+                $("#reason-input").css( "border" , "2px solid red");
+                $("#reason-input").addClass("error-border");
+                errorCount++;
+            } else {
+                $("#reason-input").css( "border" , "1px solid black");
+                $("#reason-error").css('display', 'none');
+            }
+            // alert( ` error  founds ${errorCount}`   ) ;
+            if (errorCount !== 0) {
+                $("#error-names").css('display', 'block');
+                $("#error-count").text(errorCount);
+            } else {
+                // $("#error-names").css('display', 'block');
+                $("#error-names").css('display', 'none');
+            }
+
+        })
+
+
+        function validateMail(mail) {
+            if (!mail) return false;
+            var mailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            return mail.match(mailRegex);
+        }
     </script>
 </body>
+
 </html>

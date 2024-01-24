@@ -1,0 +1,352 @@
+
+*{
+    border:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+body{
+    background-color: #f3f3fe;
+}
+#box{
+    /* background-color: aqua; */
+    background-color: white;
+    width:800px ; 
+    height:fit-content ; 
+    position: absolute;
+    top:80px;bottom:0 ; right:0 ; left:0 ; 
+    margin : auto ; 
+    z-index: 5;
+    margin-top: 20px ; 
+    margin-bottom:20px ; 
+   
+}
+#first-box{
+    width: 800px ;
+    border-bottom:1px solid gray ; 
+    
+}
+h1{
+    width: inherit; 
+    padding: 50px;
+}
+
+.required{
+    color : red ;
+}
+#second-box{
+    margin: 0 50px ;
+    display: flex;
+    flex-direction: column;
+    gap:40px ; 
+    margin-top:40px ; 
+}
+#gender{
+   
+}
+#gender-label{
+    margin-bottom:10px ; 
+    font-size: 16px;
+}
+#gender-select{
+    width: 330px ;
+    height: 45px;
+    border: 1px solid gray;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 5px;       
+
+}
+#first-name-input{
+   
+    height: 45px;
+    border: 1px solid gray;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 5px; 
+    width:330px ;   
+    margin-right:40px ; 
+}
+#last-name-input{
+   
+   height: 45px;
+   border: 1px solid gray;
+   outline: none;
+   font-size: 16px;
+   border-radius: 5px;
+   padding-left: 5px;   
+   width:330px ;   
+}
+#name-box{
+display : flex ; 
+}
+#patient-name{
+
+}
+#name p{
+margin-bottom: 10px;
+}
+.small{
+margin-top:10px ;
+font-size:12px ; 
+color : gray;
+}
+#DOB p{
+margin-bottom: 10px;
+}
+
+.DOB-input{
+height: 45px;
+   border: 1px solid gray;
+   outline: none;
+   font-size: 16px;
+   border-radius: 5px;
+    width:230px ;
+}
+#height p{
+margin-bottom: 10px;
+}
+#height-input{
+height: 45px;
+   border: 1px solid gray;
+   outline: none;
+   font-size: 16px;
+   border-radius: 5px;
+   padding-left: 5px;   
+   width:330px ;   
+   padding-left:5px ; 
+}
+#weight p{
+margin-bottom: 10px;
+}
+#weight-input{
+height: 45px;
+   border: 1px solid gray;
+   outline: none;
+   font-size: 16px;
+   border-radius: 5px;
+   padding-left: 5px;   
+   width:330px ;   
+   padding-left:5px ; 
+}
+#reason p{
+margin-bottom: 10px;
+}
+#reason-input{
+height: 45px;
+   border: 1px solid gray;
+   outline: none;
+   font-size: 16px;
+   border-radius: 5px;
+   padding-left: 5px;   
+   width:330px ;   
+   padding-left:5px ; 
+}
+#mail{
+display:flex ; 
+flex-direction: column;
+}
+#mail p{
+margin-bottom: 10px;
+}
+#mail-input{
+height: 45px;
+   border: 1px solid gray;
+   outline: none;
+   font-size: 16px;
+   border-radius: 5px;
+   padding-left: 5px;   
+   width:330px ;   
+   padding-left:5px ; 
+}
+#history{
+font-size:20px ; 
+font-weight: bold ;
+padding:20px  ; 
+border-bottom: 1px solid grey  ;
+padding-left:0;
+
+}
+#allergy p{
+margin-bottom: 10px;
+}
+#allergy textarea{
+height:150px ; 
+width : 100% ; 
+border:2px solid gray ; 
+outline : none  ; 
+border-radius : 5px ; 
+}
+#drug-select-options{
+display : flex  ;
+flex-direction: column;
+gap:10px ; 
+margin-top:10px ; 
+}
+#drug-select-options span{
+position: relative;
+}
+#drug-select-options input{
+
+width:15px ;  
+height : 15px  ; 
+margin-right:10px  ; 
+}
+#drug-select-options label{
+font-size:15px ; 
+position:absolute;
+}
+#illness p{
+margin-bottom: 10px;
+}
+#illness input{
+height: 45px;
+   border: 1px solid gray;
+   outline: none;
+   font-size: 16px;
+   border-radius: 5px;
+   padding-left: 5px;   
+   width:330px ;   
+   padding-left:5px ; 
+}
+#operations p{
+margin-bottom: 10px;
+}
+#operations textarea{
+height:150px ; 
+width : 100% ; 
+border:2px solid gray ; 
+outline : none  ; 
+border-radius : 5px ; 
+}
+#medications p{
+margin-bottom: 10px;
+}
+#medications textarea{
+height:150px ; 
+width : 100% ; 
+border:2px solid gray ; 
+outline : none  ; 
+border-radius : 5px ; 
+}
+#habits{
+font-size:20px ; 
+font-weight: bold ;
+padding:20px  ; 
+border-bottom: 1px solid grey  ;
+padding-left:0;
+
+}
+
+
+.habits-options{
+display : flex  ;
+flex-direction: column;
+gap:10px ; 
+margin-top:10px ; 
+}
+.habits-options p{
+font-size: 15px ;
+}
+.habits-options span{
+position: relative;
+}
+.habits-options input{
+
+width:15px ;  
+height : 15px  ; 
+margin-right:10px  ; 
+}
+.habits-options label{
+font-size:15px ; 
+position:absolute;
+}
+
+#medical-history p{
+margin-bottom: 10px;
+}
+#medical-history textarea{
+height:150px ; 
+width : 100% ; 
+border:2px solid gray ; 
+outline : none  ; 
+border-radius : 5px ; 
+}
+input[type=submit]{
+background-color: green ; 
+width:200px ; 
+height : 50px ; 
+color : white ;
+margin-left : 50px ;  
+margin-bottom:20px ; 
+}
+
+
+
+.missing {
+    color: white;
+    background-color: red;
+    width: fit-content;
+    font-size: 14px;
+    margin-top: 5px;
+    padding: 3px;
+    border-radius: 4px;
+}
+
+#gender-error {
+    display: none;
+}
+
+#name-error {
+    display: none;
+}
+
+#DOB-error {
+    display: none;
+}
+
+#height-error {
+    display: none;
+}
+
+#weight-error {
+    display: none;
+}
+
+#mail-error {
+    display: none;
+}
+
+#reason-error {
+    display: none;
+}
+
+#error-names {
+    display: none;
+    z-index: 10;
+    color: white;
+    background-color: red;
+    width: 100vw;
+    height: fit-content;
+    text-align: center;
+    padding: 20px;
+
+}
+
+#error-count {
+    border-radius: 30%;
+    ;
+    padding: 10px;
+    background-color: white;
+    color: black;
+}
+
+/* #height-input{
+    border: 2px solid red;
+} */
+.errorBorder {
+    border: 2px solid red;
+}

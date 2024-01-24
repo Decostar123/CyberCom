@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            background-color:rgb(228, 78, 41) ;
+            color : white ; 
+            width : 30% ; 
+            height : 40px ; 
+            font-size: 15px; 
+            border:0;
+            margin-top:10px  ;
+            border-radius: 12px ;
+        }
+        .imgContainer{
+            width : 30% ; 
+            height : fit-content;
+            border:2px solid gray;
+            border-radius: 10px ;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        img{
+            width:100% ; 
+            height : 300px ; 
+
+        }
+        #box2{
+            display:flex ; 
+            flex-wrap: wrap; 
+            gap:20px ; 
+        }
+        #url{
+            height : 30px  ; 
+            width  : 60% ; 
+            border : 2px solid black;
+            border-radius: 10px ; ;
+        }
+        #box1{
+            display : flex; 
+            justify-content: center;
+            margin-bottom:10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        <input type="text" id="url" >
+
+    </div>
+    <div id="box2">
+        <div class="imgContainer" id="img1">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmzD8CJ7p60Tih7JbOLp-MRe7pm05ZMuVM3P2RodwMTg&s  " alt="image" >
+                <br>
+                <button id="btn1">Change image</button> 
+        </div>
+        <div class="imgContainer" id="img2">
+            <img src="" alt="image" >
+            <button id="btn2">Change image</button> 
+        </div>
+            <div class="imgContainer" id="img3">
+            <img src="" alt="image" >
+            <button id="btn3">Change image</button> 
+        </div>
+        <div class="imgContainer" id="img4">
+            <img src="" alt="image" >
+            <button id="btn4">Change image</button> 
+        </div>
+        <div class="imgContainer" id="img5">
+            <img src="" alt="image" >
+            <button id="btn5">Change image</button> 
+        </div>
+        <div class="imgContainer" id="img6">
+            <img src="" alt="image" >
+            <button id="btn6">Change image</button> 
+        </div>
+    </div>
+    <script>
+        document.querySelector("#btn1").addEventListener('click' , ()=>{
+            const val = document.querySelector("#url").value ; 
+            // alert(val);
+            document.querySelector("#img1 img").src = val ; 
+        })
+        document.querySelector("#btn2").addEventListener('click' , ()=>{
+            const val = document.querySelector("#url").value ; 
+            // alert(val);
+            document.querySelector("#img2 img").src = val ; 
+        })
+        document.querySelector("#btn3").addEventListener('click' , ()=>{
+            const val = document.querySelector("#url").value ; 
+            // alert(val);
+            document.querySelector("#img3 img").src = val ; 
+        })
+        document.querySelector("#btn4").addEventListener('click' , ()=>{
+            const val = document.querySelector("#url").value ; 
+            // alert(val);
+            document.querySelector("#img4 img").src = val ; 
+        })
+        document.querySelector("#btn5").addEventListener('click' , ()=>{
+            const val = document.querySelector("#url").value ; 
+            // alert(val);
+            document.querySelector("#img5 img").src = val ; 
+        })
+        document.querySelector("#btn6").addEventListener('click' , ()=>{
+            const val = document.querySelector("#url").value ; 
+            // alert(val);
+            document.querySelector("#img6 img").src = val ; 
+        })
+    </script>
+</body>
+</html>

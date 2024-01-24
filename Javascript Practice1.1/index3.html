@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box p{
+        min-height:200px ; 
+        border : 2px solid black ;
+        width : 100% ; 
+        text-wrap: wrap;
+        
+        }
+        #box1{
+            width:30%;
+        }
+        #box2{
+            width:30%;
+        }
+        #box3{
+            width:30%;
+        }
+        #box{
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        textarea{
+            width : 40% ; 
+            border : 2px solid black ;
+        }
+        button{
+            width:150px ; 
+            height:50px ; 
+            background-color: black;
+            color: white;
+            border-radius: 12px  ;
+            font-size:20px ; 
+        }
+        button:active{
+            translate:0 10px ; 
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="box1">
+            <p>
+
+            </p>
+            <button id="buttonFirst"> Change text </button>
+        </div>
+        <div id="box2">
+            <p>
+
+            </p>
+            <button id="buttonSecond"> Change text </button>
+        </div>
+        <div id="box3">
+            <p>
+
+            </p>
+            <button id="buttonThird"> Change text </button>
+        </div>
+        
+    </div>
+    <div id="change">
+        <p>
+            Type the text to replace 
+        </p>
+        <textarea name="" id="" cols="30" rows="10">
+
+        </textarea>
+    </div>
+    <script>
+        document.querySelector("#buttonFirst").addEventListener( 'click' , ()=>{
+            const val = document.querySelector("textarea").value ; 
+            // console.log( val) ;
+            document.querySelector("#box1 p").textContent  = val ; 
+        })
+        document.querySelector("#buttonSecond").addEventListener( 'click' , ()=>{
+            const val = document.querySelector("textarea").value ; 
+            // console.log( val) ;
+            document.querySelector("#box2 p").textContent  = val ; 
+        })
+        document.querySelector("#buttonThird").addEventListener( 'click' , ()=>{
+            const val = document.querySelector("textarea").value ; 
+            // console.log( val) ;
+            document.querySelector("#box3 p").textContent  = val ; 
+        })
+    </script>
+    
+    
+</body>
+</html>
