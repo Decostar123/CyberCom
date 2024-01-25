@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: wheat;
+        }
+        #box{
+            width : fit-content ; 
+            height: fit-content;
+            position: absolute;
+            top:0px;left:0;right:0;bottom: 0;
+            margin: auto;
+            border: 4px solid blueviolet;
+            border-radius: 12px;
+            padding:20px ; 
+            background-color: white;
+        }
+        
+        #weight{
+            width : 250px ; 
+            height : 30px ;
+            margin:5px;
+            border-radius: 12px;
+            font-size: 20px;
+            padding: 5px;
+        }
+        #height{
+            width : 250px ;
+            height : 30px ;
+            margin:5px ;
+            border-radius: 12px;
+            font-size: 20px;
+            padding: 5px;
+        }
+        
+        #btn{
+            margin-top: 20px;
+            
+        }
+        button{
+            width : 150px ;
+            height : 40px ;
+            margin:5px ;
+            border-radius: 10px;
+            border: 0;
+            background-color: rgb(104, 242, 148);
+            color: white;
+            font-size: 20px;
+            outline: none ;
+        }
+        button:active{
+            translate: 0 5px;
+        }
+        #result{
+            margin-top: 20px ;
+            height : 40px ;
+            margin-left:5px ;
+            font-size: 25px;
+            width : 500px ;
+            /* background-color: gray; */
+        }
+        #remark{
+            margin-top: 20px ;
+            height : 40px ;
+            margin-left:5px ;
+            font-size: 25px;
+            width : 500px ;
+            /* background-color: gray; */
+        }
+        #error{
+            background-color: red ;
+            color:white ; 
+            height : 50px ;
+            text-align: center;
+            padding-top: 15px ;
+            font-size: 25px;
+            margin-top: 0 ;
+            /* animation: mo     2s ease-in-out; */
+            opacity: 0;
+
+        }
+        .down{
+            animation: moveDown 6s ease-in-out;
+        }
+        .up{
+            animation: moveUp 1s ease-in-out;
+        }
+        @keyframes moveDown{
+            0%{
+                opacity : 0 ; 
+                /* translate: 0 -200px ;  */
+            }
+            
+            100%{
+                opacity : 1 ; 
+                /* translate: 0 -200px ;  */
+            }
+        }
+        @keyframes moveUp{
+            0%{
+                opacity: 1 ; 
+                translate : 0 0 ;
+            }
+            100%{
+                opacity:1; 
+                translate:0 -200px  ; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <p id="error">
+        Error
+    </p>
+    <div id="box">
+        <div id="inputBox">
+            <input id="weight"  type="number" placeholder="Enter weight in Kg">
+            <input id="height"  type="number" placeholder="Enter height in metres">
+        </div>
+        <div id="btn">
+            <button>Calculate BMI</button>
+        </div>
+        <p id="result">Result</p>
+        <p id="remark">Remark</p>
+    </div>
+    
+    <script>
+        document.querySelector("button").addEventListener('click' , ()=>{
+            const wt = document.querySelector("#weight").value ; 
+            const ht = document.querySelector("#height").value ;
+            let kkk = wt + " " +ht ; 
+            // alert( kkk)  ;  
+            let error = 0  ;
+            let errorMsg = -1 ; 
+            if( notValidate(wt)){
+                let pp = notValidate(wt)
+                errorMsg = "Weight " + pp ; 
+                document.querySelector("#weight").style.border = "2px solid red" ;
+                error++;
+            }
+            // alert( errorMsg)
+            if( notValidate(ht)){
+                // alert(" error in the heght ")
+                document.querySelector("#height").style.border = "2px solid red" ;
+                let pp = notValidate(ht) ;
+                console.log ( " height " , pp )  ; 
+                if( errorMsg !== -1 ){
+                    errorMsg = errorMsg + " AND " +  "Height " + pp ; 
+                }else{
+                    errorMsg = "Height " + pp ; 
+                }
+               
+                
+                error++;
+            }
+            // alert( errorMsg );
+            // alert( error  ) ; 
+            if( error >0){
+                document.querySelector("#error").textContent = errorMsg ;
+                document.querySelector("#error").style.opacity = 0  ;
+                document.querySelector("#error").style.display = "block"; 
+                document.querySelector("#error").classList.add("down");
+                setTimeout(()=>{
+
+                    document.querySelector("#error").style.opacity = 1  ;
+                    document.querySelector("#error").classList.remove("down");
+                }  , 5900)
+                // setTimeout(()=>{
+                //     document.querySelector("#error").classList.remove("down");
+                //     document.querySelector("#error").classList.add("up");
+                //     setTimeout( ()=>{
+                //         document.querySelector("#error").style.display="none";
+                //         // alert("document.querySelector(#error).style.display=none;")
+                //     } ,990 )
+                    
+                // }, 3000 ) ; 
+                error = 0 ; 
+                return  ;
+                
+
+            }
+            document.querySelector("#error").style.opacity = 0  ;
+            document.querySelector("#weight").style.border = "1px solid black" ;
+            document.querySelector("#height").style.border = "1px solid black" ;
+            // const temp = wt + " " + ht ; 
+            // // alert( temp ) ; 
+            alert(  " no error ")
+            let bmi = wt/(ht*ht) ;
+            let res  = bmi.toFixed(1) ; 
+            bmi = res ;
+            // alert(res );
+            let color = "" , remark = "" ; 
+            if (bmi < 18.5) {
+                remark  = "underweight"; 
+                color="orange" 
+            }
+            
+            else if (bmi >= 18.5 && bmi < 24.9) 
+            {
+                remark  = "healthy"; 
+                color="green" 
+            } 
+            else if (bmi >= 24.9 && bmi < 30) 
+            {
+                remark  = "overweight"; 
+                color= "red" 
+            } 
+            else if (bmi >= 30) 
+            {
+                remark = "obesity" ;
+                color= "purple"
+            }
+            document.querySelector("#result").textContent = `BMI value is ${res}` ; 
+            document.querySelector("#result").style.color = color ; 
+            document.querySelector("#remark").textContent = `You are ${remark}` ; 
+            document.querySelector("#remark").style.color = color ; 
+
+
+        })
+
+        function notValidate( num ){
+            if( num >  0  ) return "" ; 
+            if( !num)  return "is Empty" ; 
+            return "is less than 0 "
+        }
+
+    </script>
+    
+</body>
+</html>
