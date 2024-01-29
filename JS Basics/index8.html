@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index8</title>
+    <style>
+        h3{
+            margin-top: 20px ;
+        }
+        button{
+            margin-top:10px ;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h3>TextContent  example</h3>
+        
+        
+    </div>
+    <button>Insert Adjacent element  </button>
+    <script>
+         
+        let count = 1 ; 
+        document.querySelector( "button").addEventListener( 'click' , ()=>{
+            const arr = document.querySelectorAll("h3") ;
+            const element = arr[arr.length-1] ;  
+            const node = "<h3>insertAdjacentHTML inserts the HTML at specified postion of a node  "+ count ; 
+            count++  ; 
+            // alert( element.textContent ) ; 
+            element.insertAdjacentHTML( 'afterend' , node ) ; 
+            // toggle = !toggle ;
+
+        })
+        
+    </script>
+</body>
+</html>

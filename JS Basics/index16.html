@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index16</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h3{
+            margin-top: 20px ;
+        }
+        button{
+            margin-top:10px ;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h3 > Child Node 1 </h3>
+        <h3 > Child Node 2 </h3>
+        <h3 > Child Node 3 </h3>
+        <h3 > Child Node 4 </h3>
+        <h3 > Child Node 5 </h3>
+        <h3 > Child Node 6 </h3>
+        <h3 > Child Node 7 </h3>
+        <h3 > Child Node 8 </h3>
+
+        
+        
+    </div>
+    <button>Replace Child  </button>
+    <script>
+         
+        let count = 1 ; 
+        document.querySelector("button").addEventListener( 'click' , ()=>{
+           const list = document.querySelectorAll("h3") ; 
+            const node= document.createElement("h3") ; 
+             node.textContent = `CHIILD NODE ${count}` 
+            document.querySelector("#box").replaceChild(   node  , list[list.length-count]) ;
+           count++ ; 
+            // toggle = !toggle ;
+
+        })
+        
+    </script>
+</body>
+</html>

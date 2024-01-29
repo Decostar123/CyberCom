@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index12</title>
+    <style>
+        h3{
+            margin-top: 20px ;
+        }
+        button{
+            margin-top:10px ;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h3 class="class1 class2 class3">classList  example</h3>
+        
+        
+    </div>
+    <button>Show all the classes   </button>
+    <script>
+         
+        let count = 1 ; 
+        document.querySelector( "button").addEventListener( 'click' , ()=>{
+            const list = document.querySelector("h3").classList ;
+            console.log( list ) ; 
+            for( val of list ){
+
+                const arr = document.querySelectorAll("h3") ;
+            const element = arr[arr.length-1] ;  
+            const node = `<h3>${count} class is ${val}</h3>` ; 
+            count++  ; 
+            // alert( element.textContent ) ; 
+            element.insertAdjacentHTML( 'afterend' , node ) ; 
+
+            }
+           
+            // toggle = !toggle ;
+
+        })
+        
+    </script>
+</body>
+</html>

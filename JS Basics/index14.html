@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index14</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h3{
+            margin-top: 20px ;
+        }
+        button{
+            margin-top:10px ;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h3 class="class1 class2 class3">createElement  example</h3>
+        
+        
+    </div>
+    <button>Create and Insert an elemet    </button>
+    <script>
+         
+        let count = 1 ; 
+        document.querySelector("button").addEventListener( 'click' , ()=>{
+            const node = document.createElement("h3") ; 
+            node.textContent="Selected and  created a new element  " + count ;
+            count++ ;
+            document.querySelector("#box").append( node ) ;
+           
+            // toggle = !toggle ;
+
+        })
+        
+    </script>
+</body>
+</html>

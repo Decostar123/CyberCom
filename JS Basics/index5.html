@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index5</title>
+    <style>
+        h3{
+            margin-top: 20px ;
+        }
+        button{
+            margin-top:10px ;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h3>querySelectorAll example</h3>
+        <h3> h3 tag for demonstrating querySelectorAll example </h3>
+    </div>
+    <button>Change the text Content </button>
+    <script>
+        let toggle = true ; 
+        document.querySelector("button").addEventListener( 'click' , ()=>{
+            const element = document.querySelectorAll("h3")[0] ; 
+            // alert( element.textContent ) ; 
+            element.textContent= toggle? "query SelectorAll returns array ofall maching element " : "query Selector  example"
+            toggle = !toggle ;
+        })
+        
+    </script>
+</body>
+</html>

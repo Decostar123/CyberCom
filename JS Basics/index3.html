@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index3</title>
+    <style>
+        h3{
+            margin-top: 20px ;
+        }
+        button{
+            margin-top:10px ;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h3>TagName </h3>
+        <h3>Second h3 tag to test getElementByTagName</h3>
+    </div>
+    <button>Change the inner HTML </button>
+    <script>
+        let toggle = true ; 
+        document.querySelector( "button").addEventListener( 'click' , ()=>{
+            const element = document.getElementsByTagName("h3") ; 
+          
+            element[0].textContent= toggle? "getElementsByTagName returns array of matching element" : "tagName"
+            toggle = !toggle ;
+        })
+        
+    </script>
+</body>
+</html>

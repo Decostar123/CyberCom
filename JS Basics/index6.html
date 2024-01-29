@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index6</title>
+    <style>
+       body{
+        font-family: Arial, Helvetica, sans-serif;
+       }
+        h3{
+            margin-top: 20px ;
+        }
+        button{
+            margin-top:10px ;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h3>Inner HTML example</h3>
+        
+    </div>
+    <button>Change the inner HTML </button>
+    <script>
+        let toggle = true ; 
+        document.querySelector( "button").addEventListener( 'click' , ()=>{
+            const element = document.querySelector("#box") ; 
+            element.innerHTML= toggle?"<h1> Inner HTML access the html inside the node </h1>":" <h3>Inner HTML example</h3>"
+            toggle = !toggle ;
+        })
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index11</title>
+    <style>
+        h3{
+            margin-top: 20px ;
+        }
+        button{
+            margin-top:10px ;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        
+        <img height="400px" width="600px" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fencrypted-tbn2.gstatic.com%2Flicensed-image%3Fq%3Dtbn%3AANd9GcRYT2_qpM81JX8FdDi53mc-ZNIGhwVGlDtG5uTuuHU9K6rTaRZqONIPL7tEiwLb8t4D4mBbt0-UL5ijZBU&psig=AOvVaw3S6kVPj0ocezozRTYVhXyx&ust=1706597520240000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCODM-8uBgoQDFQAAAAAdAAAAABAE" >
+        <div id="attr"></div>
+    </div>
+    <button>Chane border by style attribute  </button>
+    <script>
+        let toggle  = true ; 
+        document.querySelector( "button").addEventListener( 'click' , ()=>{
+            const temp = document.querySelector("img").style;
+          if( toggle )  temp.border = "10px solid cyan"
+          else temp.border = "0"
+          toggle = !toggle
+            
+        })
+    </script>
+</body>
+</html>

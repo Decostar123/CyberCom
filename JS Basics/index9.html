@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index9</title>
+    <style>
+        h3{
+            margin-top: 20px ;
+        }
+        button{
+            margin-top:10px ;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        
+        <img height="400px" width="500px" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fencrypted-tbn2.gstatic.com%2Flicensed-image%3Fq%3Dtbn%3AANd9GcRYT2_qpM81JX8FdDi53mc-ZNIGhwVGlDtG5uTuuHU9K6rTaRZqONIPL7tEiwLb8t4D4mBbt0-UL5ijZBU&psig=AOvVaw3S6kVPj0ocezozRTYVhXyx&ust=1706597520240000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCODM-8uBgoQDFQAAAAAdAAAAABAE" >
+        <div id="attr"></div>
+    </div>
+    <button>Get the attributes </button>
+    <script>
+        
+        document.querySelector( "button").addEventListener( 'click' , ()=>{
+            const width = document.querySelector("img").getAttribute("width") ;
+            const height = document.querySelector("img").getAttribute("height") ;
+            document.querySelector("img").insertAdjacentHTML("afterend" , `<h3> height of the image : ${height}`);
+                document.querySelector("img").insertAdjacentHTML("afterend" , `<h3> width of the image : ${width}`); 
+        })
+    </script>
+</body>
+</html>
