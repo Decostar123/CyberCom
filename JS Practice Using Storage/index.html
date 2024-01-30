@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family : Arial, Helvetica, sans-serif
+        }
+       
+        input{
+            width:300px ;
+            margin-right :10px ;
+        }
+        #container{
+            display:flex;
+        }
+        #box{
+            width:fit-content;
+            position: relative;
+        }
+        textarea{
+            margin-top:10px ; 
+            width : 100%;
+            height : 150px ; 
+        }select{
+            margin-top:10px ; 
+        }
+        button{
+            background-color: blue ;
+            padding : 10px ; 
+            color : white  ;
+            position: absolute; 
+            right : 0 ; 
+            width:100px ; 
+
+        }
+        #actions{
+            margin-top:80px;
+        }
+        th , td{
+            border:1px solid black;
+            padding:20px;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        .span2{
+            cursor : pointer ;
+            
+        }
+        .span1{
+            cursor : pointer ;
+            color : blue ;
+            border-bottom: 2px  solid blue  ;
+        }
+    </style>
+</head>
+<body>
+    <form id="box" >
+        <h1>Add Product Form</h1>
+        <div id="container">
+            <div >
+                <label for="title">Product Title</label><br>
+                <input id="title" name="title">
+            </div>
+            <div>
+                <label for="price">Product Price</label><br>
+                <input id="price" name="price">
+            </div>
+
+        </div>
+        
+        <textarea name="description" id="description">
+
+        </textarea>
+        <select name="category" id="category">
+            <option value >Select category</option>
+            <option value="Shoes">Shoes</option>
+            <option value="Watch">Watch</option>
+            <option value="Cloth">Cloth</option>
+            <option value="Eectronics">Electronics</option>
+        </select>
+        <br>
+        <button type="submit">Save</button>
+
+    </form>
+    <div id ="actions" >
+        <table>
+            <tr>
+                <th>Product Title</th>
+               
+                <th>Price</th>
+                <th>Category</th>
+                <th>Actions</th>
+
+            </tr>
+         
+        </table>
+    </div>    
+</body>
+    <script>
+        document.querySelector("#box").addEventListener('submit', (e)=>{
+            
+            
+            e.preventDefault() ;
+            alert( "Submitted ") ; 
+            const formData = new FormData(e.target) ; 
+            const inputObj = {} ; 
+            for( const entry of formData ){
+                const a  = entry[0] ; 
+                const b = entry[1] ;
+
+               
+                    inputObj[a] = b ;
+                
+            } ; 
+
+            
+            // console.log( "Arr " , arr ) ; 
+            insertEntry(inputObj) ; 
+            
+        }) ;
+        function insertEntry( inputObj){
+           
+            let newRow = document.createElement("tr") ; 
+            for( ele of Object.keys(inputObj)){
+                if( ele === "description"){
+                    continue ; 
+                }
+                console.log( ele) ; 
+                const newCol = document.createElement("td") ; 
+                newCol.textContent = inputObj[ele] ; 
+                newRow.append( newCol  )  ;  
+            }
+            let newCol = document.createElement("td") ; 
+            let span1 = document.createElement("span") ; 
+            span1.textContent = "Edit  " ; 
+           
+            let span2 = document.createElement("span") ; 
+            span2.textContent = "Delete" ;
+            span2.classList.add("span2") ;
+            span1.classList.add("span1") ;
+            newCol.append(span1) ; 
+            newCol.append(span2) ; 
+            newRow.append( newCol  ) ; 
+            document.querySelector("table").append(newRow) ; 
+
+            let arr  = localStorage.getItem("inputForm" ) ; 
+            if( arr === null ){
+                const temp = [] ; 
+                localStorage.setItem("inputForm"  , JSON.stringify( temp)) ; 
+            }
+            arr = localStorage.getItem("inputForm" ) ; 
+            arr = JSON.parse( arr) ; 
+            arr.push( inputObj ) ; 
+            let index = inputForm.length -1 ; 
+
+            localStorage.setItem("inputForm"  , JSON.stringify( arr)) ;
+            console.log( locaStorage.getItem("inputForm"))  ; 
+            span2.addEventListener( 'click' ,  ()=>{
+                alert("span2") ;
+                deleteEntry( newRow , index ) ; 
+            })
+
+        }
+        function deleteEntry( newRow , index ){
+            newRow.remove() ; 
+
+            let arr  = localStorage.getItem("inputForm" ) ; 
+            arr = localStorage.getItem("inputForm" ) ; 
+            arr = JSON.parse( arr) ; 
+            arr.splice( index , 1 ) ; 
+            localStorage.setItem("inputForm"  , JSON.stringify( arr)) ;
+
+
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            alert("hi");
+            let formArray = localStorage.getItem("inputForm");
+            if (!formArray) return;
+            formArray = JSON.parse(formArray);
+            console.log(formArray);
+            
+            for( index in  formArray ){
+                inputObj = formArray[index ] ; 
+                let newRow = document.createElement("tr") ; 
+                for( ele of Object.keys(inputObj)){
+                    if( ele === "description"){
+                        continue ; 
+                    }
+                        console.log( ele) ; 
+                        const newCol = document.createElement("td") ; 
+                        newCol.textContent = inputObj[ele] ; 
+                        newRow.append( newCol  )  ;  
+            }
+            let newCol = document.createElement("td") ; 
+            let span1 = document.createElement("span") ; 
+            span1.textContent = "Edit  " ; 
+            span1.classList.add("span1") ;
+
+            let span2 = document.createElement("span") ; 
+            span2.textContent = "Delete" ;
+            span2.classList.add("span2") ;
+            newCol.append(span1) ; 
+            newCol.append(span2) ; 
+            newRow.append( newCol  ) ; 
+            document.querySelector("table").append(newRow) ; 
+            span2.addEventListener( 'click' ,  ()=>{
+                deleteEntry( newRow , index ) ; 
+            })
+            span1.addEventListener('click' , ()=>{
+                modifyEntry( index ) ; 
+            })
+
+            } 
+            //  modifyEntry( 0 , {} )  ;
+        });
+
+
+        function modifyEntry( index   ){
+            alert( index ) ; 
+            let arr  = localStorage.getItem("inputForm" ) ; 
+            if( arr === null ){
+                const temp = [] ; 
+                localStorage.setItem("inputForm"  , JSON.stringify( temp)) ; 
+            }
+            arr = localStorage.getItem("inputForm" ) ; 
+            arr = JSON.parse( arr) ; 
+            // arr[index] = obj ; 
+            const entry1=document.querySelectorAll("tr")[index] ; 
+            const entry2 = entry1.children ; 
+            console.log( entry2 ) ; 
+             document.querySelector("#title").value = arr[index].title ; 
+             document.querySelector("#price").value = arr[index].price ;
+             document.querySelector("#description").textContent = arr[index].description ;
+             document.querySelector("#category").value = arr[index].category ;
+
+        }
+        function removeAllChildren(){
+           
+
+        }
+    </script>
+</html>
