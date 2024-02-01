@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        
+        #error{
+            height: 50px  ; 
+            background-color: red; 
+            color:white ; 
+            text-align: center;
+            padding-top:10px ; 
+            font-size: 30px;
+            display:none;
+        }
+        *{
+            margin:0;
+        }
         body{
+             
             font-family : Arial, Helvetica, sans-serif
         }
        
@@ -38,6 +52,7 @@
         }
         #actions{
             margin-top:80px;
+            width : fit-content;
         }
         th , td{
             border:1px solid black;
@@ -55,57 +70,80 @@
             color : blue ;
             border-bottom: 2px  solid blue  ;
         }
+        #main_container{
+            margin-top:100px ;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        h1{
+            margin-bottom: 40px ;
+        }
     </style>
 </head>
 <body>
-    <form id="box" >
-        <h1>Add Product Form</h1>
-        <div id="container">
-            <div >
-                <label for="title">Product Title</label><br>
-                <input id="title" name="title">
-            </div>
-            <div>
-                <label for="price">Product Price</label><br>
-                <input id="price" name="price">
-            </div>
-
+        <div id="error">
+            <p id="errorP">Error</p>
         </div>
+        <div id="main_container">
+
+            <form id="box" >
+
+                <h1>Add Product Form</h1>
+                <div id="container">
+                    <div >
+                        <label for="title">Product Title</label><br>
+                        <input id="title" name="title">
+                    </div>
+                    <div>
+                        <label for="price">Product Price</label><br>
+                        <input id="price" name="price">
+                    </div>
         
-        <textarea name="description" id="description">
-
-        </textarea>
-        <select name="category" id="category">
-            <option value >Select category</option>
-            <option value="Shoes">Shoes</option>
-            <option value="Watch">Watch</option>
-            <option value="Cloth">Cloth</option>
-            <option value="Eectronics">Electronics</option>
-        </select>
-        <br>
-        <button type="submit">Save</button>
-
-    </form>
-    <div id ="actions" >
-        <table>
-            <tr>
-                <th>Product Title</th>
-               
-                <th>Price</th>
-                <th>Category</th>
-                <th>Actions</th>
-
-            </tr>
-         
-        </table>
-    </div>    
+                </div>
+                
+                <textarea name="description" id="description" ></textarea>
+                  
+                <select name="category" id="category">
+                    <option value >Select category</option>
+                    <option value="Shoes">Shoes</option>
+                    <option value="Watch">Watch</option>
+                    <option value="Cloth">Cloth</option>
+                    <option value="Eectronics">Electronics</option>
+                </select>
+                <br>
+                <button type="submit">Save</button>
+        
+            </form>
+            <div id ="actions" >
+                <table>
+                    <tr>
+                        <th>Product Title</th>
+                       
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+        
+                    </tr>
+                 
+                </table>
+            </div>
+        </div>
+           
+    
+   
 </body>
     <script>
+
+        let alterIndex = -1 ; 
         document.querySelector("#box").addEventListener('submit', (e)=>{
+            
+
             
             
             e.preventDefault() ;
-            alert( "Submitted ") ; 
+            // alert( "Submitted ") ; 
             const formData = new FormData(e.target) ; 
             const inputObj = {} ; 
             for( const entry of formData ){
@@ -116,17 +154,25 @@
                     inputObj[a] = b ;
                 
             } ; 
-
+            const error = verify( inputObj ) ; 
+            if( error) return; 
+            if( alterIndex !== -1 ){
+                // alterIndex = -1 ; 
+                saveEditedChanges( inputObj ) ; 
+                alterIndex = -1 ;  
+                return ; 
+            }
             
             // console.log( "Arr " , arr ) ; 
             insertEntry(inputObj) ; 
+            document.querySelector("#box").reset() ; 
             
         }) ;
         function insertEntry( inputObj){
            
             let newRow = document.createElement("tr") ; 
             for( ele of Object.keys(inputObj)){
-                if( ele === "description"){
+                if( ele === "description" || ele=== "_id"){
                     continue ; 
                 }
                 console.log( ele) ; 
@@ -145,39 +191,56 @@
             newCol.append(span1) ; 
             newCol.append(span2) ; 
             newRow.append( newCol  ) ; 
-            document.querySelector("table").append(newRow) ; 
+            
 
+            let tempID = "" + Date.now() ;
+            // newRow.id = tempID ; 
+            newRow.setAttribute("id"  , tempID ) ; 
+            document.querySelector("table").append(newRow) ; 
             let arr  = localStorage.getItem("inputForm" ) ; 
             if( arr === null ){
                 const temp = [] ; 
                 localStorage.setItem("inputForm"  , JSON.stringify( temp)) ; 
             }
             arr = localStorage.getItem("inputForm" ) ; 
+            // arr.push( inputObj )  ;
+             
+            inputObj._id = tempID ; 
             arr = JSON.parse( arr) ; 
-            arr.push( inputObj ) ; 
-            let index = inputForm.length -1 ; 
+            arr.push( inputObj ) ;
+            console.log( " new mojdified arra " , arr ) ;  
+            let index = arr.length -1 ; 
 
             localStorage.setItem("inputForm"  , JSON.stringify( arr)) ;
-            console.log( locaStorage.getItem("inputForm"))  ; 
+            console.log( localStorage.getItem("inputForm"))  ; 
             span2.addEventListener( 'click' ,  ()=>{
                 alert("span2") ;
-                deleteEntry( newRow , index ) ; 
+                deleteEntry( newRow , tempID ) ; 
             })
+            span1.addEventListener( 'click' , ()=>{
+                modifyEntry( tempID   ) ; 
+            })
+            alert( " Form submitted " )  ; 
+            document.querySelector("form").reset() ; 
 
         }
-        function deleteEntry( newRow , index ){
+        function deleteEntry( newRow , tempID ){
+        
+            alert( `index to be deleted is ${tempID}`  )  ;
             newRow.remove() ; 
 
             let arr  = localStorage.getItem("inputForm" ) ; 
             arr = localStorage.getItem("inputForm" ) ; 
             arr = JSON.parse( arr) ; 
-            arr.splice( index , 1 ) ; 
+
+            arr = arr.filter( ( ele ) => ele._id !== tempID )  ; 
+
             localStorage.setItem("inputForm"  , JSON.stringify( arr)) ;
 
 
         }
         document.addEventListener('DOMContentLoaded', () => {
-            alert("hi");
+            // alert("hi");
             let formArray = localStorage.getItem("inputForm");
             if (!formArray) return;
             formArray = JSON.parse(formArray);
@@ -187,7 +250,7 @@
                 inputObj = formArray[index ] ; 
                 let newRow = document.createElement("tr") ; 
                 for( ele of Object.keys(inputObj)){
-                    if( ele === "description"){
+                    if( ele === "description" || ele === "_id"){
                         continue ; 
                     }
                         console.log( ele) ; 
@@ -195,6 +258,7 @@
                         newCol.textContent = inputObj[ele] ; 
                         newRow.append( newCol  )  ;  
             }
+            newRow.setAttribute("id" , formArray[index]._id )
             let newCol = document.createElement("td") ; 
             let span1 = document.createElement("span") ; 
             span1.textContent = "Edit  " ; 
@@ -208,10 +272,10 @@
             newRow.append( newCol  ) ; 
             document.querySelector("table").append(newRow) ; 
             span2.addEventListener( 'click' ,  ()=>{
-                deleteEntry( newRow , index ) ; 
+                deleteEntry( newRow , inputObj._id  ) ; 
             })
             span1.addEventListener('click' , ()=>{
-                modifyEntry( index ) ; 
+                modifyEntry(  inputObj._id  ) ; 
             })
 
             } 
@@ -219,8 +283,11 @@
         });
 
 
-        function modifyEntry( index   ){
-            alert( index ) ; 
+        function modifyEntry( tempID     ){
+            // alterIndex = Number(index)+1 ; 
+            // alert( index ) ; 
+            // alert( alterIndex ) ; 
+            alterIndex = tempID ; 
             let arr  = localStorage.getItem("inputForm" ) ; 
             if( arr === null ){
                 const temp = [] ; 
@@ -229,18 +296,140 @@
             arr = localStorage.getItem("inputForm" ) ; 
             arr = JSON.parse( arr) ; 
             // arr[index] = obj ; 
-            const entry1=document.querySelectorAll("tr")[index] ; 
+            let entry1=document.querySelectorAll("tr"); 
+            console.log( "entry1 isthud ", entry1 ) ; 
+            let ppp = [] ; 
+            entry1.forEach( ele => {
+                if( ele.id === tempID ){
+                    ppp = ele ; 
+                }
+            } ) ; 
+            entry1 =  ppp  ; 
+            console.log( entry1 ) ; 
             const entry2 = entry1.children ; 
             console.log( entry2 ) ; 
-             document.querySelector("#title").value = arr[index].title ; 
-             document.querySelector("#price").value = arr[index].price ;
-             document.querySelector("#description").textContent = arr[index].description ;
-             document.querySelector("#category").value = arr[index].category ;
+            console.log( arr  , "tempID" , tempID )   ;
+            
+
+            let tempEntry = arr.filter( ele => ele._id === tempID ) ; 
+            tempEntry = tempEntry[0] ; 
+            console.log("tempentry is " , tempEntry)
+             document.querySelector("#title").value = tempEntry.title ; 
+             document.querySelector("#price").value = tempEntry.price ;
+             document.querySelector("#description").value = tempEntry.description ;
+             document.querySelector("#category").value = tempEntry.category ;
 
         }
-        function removeAllChildren(){
-           
 
+        function saveEditedChanges( inputObj ){
+           
+            console.log( "the input object is " , inputObj ) ; 
+            let arr  = localStorage.getItem("inputForm" ) ; 
+            if( arr === null ){
+                const temp = [] ; 
+                localStorage.setItem("inputForm"  , JSON.stringify( temp)) ; 
+            }
+            arr = localStorage.getItem("inputForm" ) ; 
+            arr = JSON.parse( arr) ; 
+            // arr[index] = obj ; 
+            console.log( " AlterIndex" , alterIndex ); 
+            let entry1 = document.querySelectorAll("tr") ;
+            console.log( " value of entry1" , entry1 ) ; 
+             let pppp = [] ; 
+            entry1.forEach( ele => {
+                console.log("ele.id" , ele.id ) ; 
+                if( ele.id === alterIndex ){
+                    pppp = ele   ; 
+                }
+            } ) ; 
+            entry1 = pppp  ; 
+            console.log( 'value of entry1', entry1 ) ;  
+            const entry2 = entry1.children ; 
+            console.log( entry2 ,)
+            console.log("the input objcetc was " , inputObj )
+
+            inputObj._id = alterIndex ; 
+
+            entry2[0].textContent = inputObj.title ; 
+            entry2[1].textContent = inputObj.price ; 
+            entry2[2].textContent = inputObj.category ; 
+            
+            let correctIndx =  0 ; 
+             arr.forEach( (ele , ind ) => {
+                if( ele._id === inputObj.id ) {
+                    correctIndx = ind ; 
+                }
+             }) ; 
+             console.log("Corrrect indes" , correctIndx )
+            // arrEntry = arrEntry[0]  ; 
+            
+            arr[correctIndx].title = document.querySelector("#title").value  
+            arr[correctIndx].price = document.querySelector("#price").value 
+            arr[correctIndx].description =  document.querySelector("#description").value
+            arr[correctIndx].category = document.querySelector("#category").value ; 
+            
+            
+            localStorage.setItem( 'inputForm' , JSON.stringify(arr)) ;
+            alterIndex = -1 ; 
+            alert( "Changes were saved") ; 
+            document.querySelector("form").reset() ;
+            resetStyle() ;  
+
+        }
+    
+        function resetStyle(){
+
+            document.querySelector("#title").style.border ="1px solid black" ; 
+        document.querySelector("#price").style.border ="1px solid black" ; 
+        document.querySelector("#description").style.border ="1px solid black" ; 
+        document.querySelector("#category").style.border ="1px solid black" ; 
+        document.querySelector("#error").style.display  = "block"
+
+        }
+       function  verify(inputObj){
+
+        resetStyle() ; 
+        
+            let ttl = inputObj.title ; 
+            console.log("error inputObj" , inputObj )
+            if( ttl === ""){
+                // alert("emoty value ");
+                document.querySelector("#errorP").textContent = "Empty Product title "
+                document.querySelector("#title").style.border ="2px solid red" ; 
+                return true  ; 
+            }
+             ttl = inputObj.price ; 
+            let num = Number(ttl) ; 
+            if( ttl === ""){
+                alert("emoty value ");
+                document.querySelector("#errorP").textContent = "Empty Product Price "
+                document.querySelector("#price").style.border ="2px solid red" ; 
+                return true  ; 
+            }
+
+            if( !num){
+                document.querySelector("#errorP").textContent = "Invalid product price" ;
+                document.querySelector("#price").style.border ="2px solid red" ; 
+                return true ; 
+            }
+            ttl = inputObj.description;
+            console.log( description ) ; 
+            if( ttl === ""){
+                alert("emoty value ");
+                document.querySelector("#errorP").textContent = "Empty Product Description "
+                document.querySelector("#description").style.border ="2px solid red" ; 
+                return true  ; 
+            }
+            ttl = inputObj.category ; 
+            if(!ttl){
+                document.querySelector("#category").style.border ="2px solid red" ; 
+                return true ;
+            }
+
+
+            
+
+            return false ;
         }
     </script>
 </html>

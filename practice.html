@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            table{
+                /* border-codllapse: collapse ; */
+            }
+            td{
+                border:1px solid black ; 
+                padding:10px ; 
+            }
+            #entry{
+                text-align: start;
+               
+            }
+        </style>
+        
+
+    </head>
+    <body>
+
+     <form yes="no" >
+        <input type="checkbox" name="F" value="A">
+        <input type="checkbox" name="F" value="B">
+        <input type="checkbox" name="F" value="C">
+        <input type="checkbox" name="F" value="D">
+        <input type="checkbox" name="F" value="E">
+
+        
+
+        <input type="submit">
+     </form>
+
+     <script>
+        document.querySelector("form").addEventListener( 'submit' , (e)=>{
+            e.preventDefault() ; 
+           console.log( e.target ) ;
+           console.log( e.target.getAttribute("yes")) 
+           console.log( e ) ; 
+           const formData = new FormData( e.target ) ; 
+           for( entry of formData ){
+            console.log( entry[0] + "-" + entry[1])
+           }
+        })
+        
+     </script>
+
+    </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        *{
+            margin:0 ; 
+            padding:0 ; 
+            box-sizing: border-box;
+        }
+        #left{
+            width:30%; 
+            border:2px solid black ; 
+            height:100% ;
+            display: flex ;
+            flex-direction: column;
+            gap:40px ;  
+            padding:10px ;
+        }
+        #right{
+            width:70%;
+            border  : 2px solid black ; 
+            height:100% ; 
+        }
+        #container{
+            display : flex ; 
+            height : 100vh ; 
+            padding:2px  ;
+        }
+        #admin{
+            margin-bottom:50px;
+        }
+        #user{
+            cursor  : pointer ; 
+        }
+        #age{
+            display : flex ; 
+            justify-content: center;
+            gap:20px ; 
+
+        }
+        #age div{
+            padding:20px;
+            padding-left: 40px;
+            padding-right:40px ; 
+            border : 2px solid black ; 
+            width:30% ; 
+        }
+        #board{
+            font-weight: bold;
+            margin:20px;
+        }
+        #birthday{
+            text-align: center;
+            margin-top:50px ; 
+            font-weight: bold ;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="left">
+            <p id="admin">Hello, <span id="adminName">User</span></p>
+
+            <p id="dashboard">Dashboard</p>
+            <p id="user">User</p>
+            <p id="loginSession">Login Session</p>
+            <p id="logout">Logout</p>
+        </div>
+        <div id="right">
+            <p id="board">DashBoard</p>
+            <div id="age">
+                <div id="small">
+                    <p>User <18 years</p>
+                    <p> 12 years</p>
+                </div>
+                <div id="medium">
+                    <p>User <18 years</p>
+                        <p> 12 years</p>
+                    
+                </div>
+                <div id="large">
+                    <p>User <18 years</p>
+                        <p> 12 years</p>
+                    
+                </div>
+            </div>
+            <p id="birthday">Today is ABC birthday</p>
+        </div>
+            
+
+    
+    </div>
+    <script>
+
+    document.addEventListener('DOMContentLoaded', () => { 
+        let adminEntry = localStorage.getItem("adminDetails") ; 
+        // userName: "Deco3", mail: "", pass: "", confirmPass: "", city: "", state: ""}
+       adminEntry = JSON.parse(adminEntry) ;
+        document.querySelector("#adminName").textContent = adminEntry.userName ;
+    } )
+    document.querySelector("#user").addEventListener( 'click' , ()=>{
+        window.open( "http://127.0.0.1:5500/Task/Users.html" , "_blank")
+    })
+
+    </script>
+    
+    
+</body>
+</html>
