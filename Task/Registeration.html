@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registeration</title>
+    <link rel="stylesheet" href="./Registeration.css">
+</head>
+<body>
+    <form class="login">
+        <input type="text"  name="userName" id="userName" placeholder="Name" required>
+        <input type="email"  name="mail" id="mail" placeholder="Email" required>
+        <input type="password" name="pass" id="pass" placeholder="Password" required>
+        <input type="password" name="confirmPass" id="confirmPass" placeholder="Confirm Password" required>
+        <select name="city" id="city" required>
+            <option value> Select City</option>
+            <option value="CityA">CityA</option>
+            <option value="CityB">CityB</option>
+            <option value="CityC">CityC</option>
+            <option value="CityD">CityD</option>
+            <option value="CityE">CityE</option>
+            <option value="CityF">CityF</option>
+        </select>
+        <select name="state" id="state" required>
+            <option value >Select State</option>
+            <option value="StateA">StateA</option>
+            <option value="StateB">StateB</option>
+            <option value="StateC">StateC</option>
+            <option value="StateD">StateD</option>
+            <option value="StateE">StateE</option>
+            <option value="StateF">StateF</option>
+        </select>
+        <div class="condition">
+            <input  name="condition" id="condition" type="checkbox" required><span>Terms &Condions</span>
+        </div>
+        <button id="register">REGISTER </button> 
+
+
+
+    </form>
+    <script src="./Registeration.js">  </script>
+</body>
+</html>

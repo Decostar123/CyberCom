@@ -1,0 +1,35 @@
+
+.login{
+    display: flex ; 
+    
+    flex-direction: column ;
+    gap:20px ; 
+    width:500px;
+    height:fit-content;
+    position:absolute;
+    top:0; right:0 ; left:0 ; bottom: 0; 
+    margin:auto; 
+    padding:20px  ; 
+    border:2px solid black;
+    justify-content: left;
+}
+input{
+    height: 30px ;
+    padding:5px ; 
+
+}
+button{
+    height : 40px ; 
+    padding:5px ; 
+}
+select{
+    height:30px ; 
+}
+.condition{
+   display: flex ;
+   flex-direction: row;
+    
+}
+.condition input{
+height:fit-content;
+}

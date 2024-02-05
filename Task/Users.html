@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="./Users.css">
+</head>
+<body>
+        <div id="container">
+            <div id="leftdashboard">
+
+
+
+
+              
+                    <p id="admin">Hello, <span id="adminName">User</span></p>
+        
+                    <p id="dashboard">Dashboard</p>
+                    <p id="user">User</p>
+                    <p id="loginSession">Login Session</p>
+                    <p id="logout">Logout</p>
+                
+            </div>
+            <div id="right_main_container">
+               
+                <h1 id="addUser">Add User</h1>
+                <div id="formBox">
+                    <form id="box" >
+
+        
+                        <div id="subcontainer">
+                        
+                            <input type="text" id="userName" name="userName" placeholder="Name" required >
+                            <input id="mail" type="email" name="email" placeholder="Email" required >
+                            <input id="password" type="password" name="password" placeholder="Password" required >
+                            <input id="birthdate" type="date" name="birthdate" placeholder="BirthDate" required >
+                        </div>
+
+                        <button id="submitBtn" type="submit">Add User</button>
+                        
+                        
+                       
+                    </form>  
+                    
+                   
+                </div>
+
+
+               
+                    
+             
+
+
+
+   <p id="userList">User List</p>
+                <div id ="actions" >
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                               
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>BirthDate</th>
+                                <th>Age</th>
+                                <th>Actions</th>
+                
+                            </tr>
+                         
+                        </table>
+                </div>
+                  
+            </div>
+               
+            
+        </div>
+       
+           
+    
+   
+</body>
+    <script src="./Users.js"> </script>
+</html>

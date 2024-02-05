@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <style>
+
+        *{
+            margin: 0  ; 
+            padding : 0 ; 
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #box{
+            width:500px;
+        }
+        #head-upper img{
+            width:50px ; 
+            height : 50px ; 
+        }
+        #head-upper label{
+            font-size:50px ; 
+            
+        }
+        #head-upper{
+            display : flex ; 
+            justify-content: space-between;
+        }
+        #head-lower{
+            margin-top:30px  ; 
+            display : flex ; 
+            justify-content: center;
+            gap:20px;
+        }
+        #head-lower label{
+            padding-bottom:20px;
+        }
+        #order{
+            color : red ; 
+            border-bottom: 2px solid red ;
+        }
+        i{
+            font-size:50px;
+            margin-right:20px;
+        }
+        .element{
+           
+            display: flex;
+            justify-content: space-between;
+            width:450px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding:10px;
+
+        }
+        .item{
+            display:flex;
+        }
+        .desc i{
+            font-size:20px ; 
+            margin:0;
+            padding:0
+        }
+        .desc{
+            display : flex ; 
+            justify-content: center;
+            align-items: center;
+            gap:10px
+        }
+        #body{
+            display : flex ; 
+            flex-direction: column;
+            /* justify-content: center ; */
+            align-items: center;
+            gap:20px ;
+            padding-top:20px ; 
+            height:600px;
+            background-color: rgb(247, 244, 244);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="head">
+            <div id="head-upper">
+                <img src="./assets/hamburger.png"  >
+                <label>CART</label>
+                <img src="./assets/dustbin.png" >
+            </div>
+            <div id="head-lower">
+                <label id="order">CURRENT ORDER </label>
+                <label  id="history">ORDER HISTORY</label>
+            </div>
+        </div>
+        <div id="body"> </div>
+        <script type="module">
+ import {data} from "./data.js" ; 
+            
+             document.addEventListener('DOMContentLoaded' , ()=>{
+                
+                let purchasedItems = localStorage.getItem("purchasedItems") ; 
+            if( purchasedItems === null  ){
+                const temp = [] ; 
+                for( let i = 0 ; i < data.length ; i++ ) temp.push({})
+                localStorage.setItem( "purchasedItems" , JSON.stringify(temp)) ;
+                 
+            }
+           
+            purchasedItems = JSON.parse(localStorage.getItem("purchasedItems")) ; 
+
+            console.log( data ) ; 
+            console.log( purchasedItems ); 
+            for( let ind = 0 ; ind < data.length ; ind++  ){
+            
+                const ele = data[ind] ;
+
+                purchasedItems[ind].name = ele.name ; 
+                purchasedItems[ind].quantity = 0 ; 
+                purchasedItems[ind].price = ele.price ;
+
+                console.log( purchasedItems[ind])
+                // purchasedItems[ind].name = ele.name;
+                const div1 = document.createElement("div") ; 
+                div1.id = Date.now() ; 
+                purchasedItems._id = div1.id ; 
+                div1.classList.add("element") ; 
+                
+                const tempHTML = `
+                    <div class="item">
+                        <i class="${ele.imageClass}"></i>
+                        <pre>${ele.name}
+<span class="price">₹${ele.price}</span>
+                    </div>
+                    
+                    `
+                    div1.insertAdjacentHTML('beforeend' , tempHTML  ) ; 
+                    const div2 = document.createElement("div") ; 
+                    div2.classList.add("desc") ; 
+                    const i1 = document.createElement("i")
+                    i1.classList.add("bx");
+                    i1.classList.add("bxs-minus-circle") ; 
+                    i1.style.cursor = "pointer" 
+                    const p1 = document.createElement("p") ; 
+                    p1.textContent =  purchasedItems[ind].quantity ; 
+                    const i2 = document.createElement("i")
+                    i2.classList.add("bx");
+                    i2.classList.add("bxs-plus-circle") ;
+                    div2.append(i1) ; 
+                    div2.append(p1)  ;
+                    div2.append(i2);
+                    div1.append(div2) ;  
+
+                    document.querySelector("#body").append( div1 ) ;
+                    i1.addEventListener("click" , ()=>{
+                        decrease (ind , div1 ) 
+                    })
+                    // document.querySelector("#body").insertAdjacentHTML("beforeend" , tempHTML ) ;
+            }
+           
+            localStorage.setItem( "purchasedItems" , JSON.stringify(purchasedItems)) ;
+
+
+             }  ) ;
+         
+           
+           
+             function decrease( ind , div1 ){
+                alert(ind ) ; 
+
+                let purchasedItems = localStorage.getItem("purchasedItems") ; 
+            if( purchasedItems === null  ){
+                alert("Error ocurred ") ; 
+                return ; 
+                 
+            }
+           
+            purchasedItems = JSON.parse(localStorage.getItem("purchasedItems")) ; 
+            console.log( purchasedItems ) ; 
+            if( purchasedItems[ind].quantity === 0 ){
+                const ans = confirm("Are you  sure you want to delete the item ?") ;
+                if( !ans) return  ; 
+                if( ans ){
+                    const index = purchasedItems.findIndex( ele => ele._id === div1.id ) ; 
+                    if( index === -1 ){
+                        alert(" Error ocurred ") ; return  ; 
+                    }
+                    purchasedItems.splice(index , 1  ) ; 
+                    alert("Deleted Item sucessfully ") ; 
+                    return ; 
+                }
+            }
+
+
+             }
+
+        
+            
+            
+       </script>
+</body>
+</html>

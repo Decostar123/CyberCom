@@ -1,0 +1,25 @@
+
+.login{
+    display: flex ; 
+    flex-direction: column ;
+    gap:20px ; 
+    width:500px;
+    height:fit-content;
+    position:absolute;
+    top:0; right:0 ; left:0 ; bottom: 0; 
+    margin:auto; 
+    padding:20px  ; 
+    border:2px solid black;
+}
+input{
+    height: 30px ;
+    padding:5px ; 
+
+}
+button{
+    height : 40px ; 
+    padding:5px ; 
+}
+#or{
+    text-align : center ;
+}
