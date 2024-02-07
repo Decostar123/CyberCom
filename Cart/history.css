@@ -1,0 +1,105 @@
+
+
+*{
+    margin: 0  ; 
+    padding : 0 ; 
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#box{
+    width:500px;
+    padding : 5px ; 
+    border : 2px solid gray ; 
+}
+#head-upper img{
+    width:50px ; 
+    height : 50px ; 
+}
+#head-upper label{
+    font-size:50px ; 
+    
+}
+#head-upper{
+    display : flex ; 
+    justify-content: space-between;
+}
+#head-lower{
+    margin-top:30px  ; 
+    display : flex ; 
+    justify-content: center;
+    gap:20px;
+}
+#head-lower label{
+    padding-bottom:20px;
+}
+#history{
+    color : red ; 
+    border-bottom: 2px solid red ;
+}
+i{
+    font-size:50px;
+    margin-right:20px;
+}
+
+
+#body{
+    display : flex ; 
+    flex-direction: column;
+    align-items: center;
+    gap:20px ;
+    padding-top:20px ; 
+    height:600px;
+    background-color: rgb(247, 244, 244);
+}
+#Order{
+    color : red ;
+}
+#div1{
+    display:flex ; 
+    justify-content: space-around;
+    height:fit-content;
+    width: 100%;
+    margin-bottom: 50px;
+    /* background-color: aqua; */
+
+}
+.div3{
+    display:flex ; 
+    justify-content: space-around;
+    height:fit-content;
+    width: 90%;
+    border-bottom:2px solid gray ;
+    padding:1px;
+    margin : auto  ; 
+    /* background-color: aqua;  */
+}
+.div2{
+    width:100% ; 
+    display : flex ; 
+    flex-direction: column;
+    gap: 50px;
+}
+.itemName{
+    font-weight:bold ;
+}
+.itemQuantity , .total{
+    color : gray ;
+}
+#div3{
+    color : gray ;
+   
+    width:100%;
+}
+#total{
+    text-align: right ;
+    padding-right:80px;
+}
+body{
+    display : grid ; 
+    place-content: center ;
+    padding-top: 50px ; 
+}
+#order{
+    cursor : pointer  ;    
+}
+
