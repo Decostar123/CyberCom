@@ -6,7 +6,7 @@
     <title>ToDoList</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div id="box">
@@ -15,19 +15,33 @@
         </div>
         <div id="content">
             <div id="container1">
-                <input  placeholder="What would you like to add ?"  >
+                <input required id="input1" placeholder="What would you like to add ?"  >
+               <div id="dueDate">
+                <input required id="input2" type="number" placeholder="Enter poirity number." >
+                <input required id="input3" placeholder="Select DUe Date"
+                type="text"
+                onfocus="(this.type='date')"
+                onblur="(this.type='text')"
+                 
+                >
+               </div>
                 <button id="add"> ADD </button>
             </div>
             <div id="container2">
-                <p id="todo">Todo List</p>
+                
                 <div id="task">
                     <div id="taskHeading">
-                        <p class="list">List</p>
+                        <p class="list">Tasks</p>
+                        
+                        <p class="priority">Priority</p>
+                        <p class="endDate">Due Date</p>
                         <p class="status">Edit</p>
-                        <p class="close">Close</p>
-                    </div>
+                        <p class="close">Delete</p>
+                    </div>  
                     <div id="taskBody">
+                      
                        
+                        
                     </div>
                 </div>
             </div>
@@ -35,7 +49,7 @@
     </div>
     
 
-    <script src="./index.js">   </script>
+    <script src="./script.js">   </script>
     
 </body>
 </html>

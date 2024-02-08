@@ -59,6 +59,9 @@ body{
     align-items: center;
     gap:25px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding-top:10px ;
+    padding-bottom:10px ;
+    height:fit-content;
 }
 #container1 input{
     border: 0;
@@ -106,17 +109,31 @@ body{
     padding: 20px;
     background-color: aliceblue;
 }
+.endDate{
+    width:20%;
+    text-align:center;
+    /* text-decoration: line-through; */
+}
+.priority{
+    width:10%;
+    text-align:center ;
+    /* text-decoration: line-through; */
+}
 .list{
-    width:60%;
+    width:50%;
     text-align: left;
     padding-left: 20px;
+    /* text-decoration: line-through; */
     /* background-color: rgb(152, 152, 152); */
 }
 .status{
-    width:30%;
+    width: 10%;
     text-align: center;
     /* background-color: aqua; */
 }
+/* .status button{
+    width:90%;
+} */
 .close{
     width:10%;
     text-align: center;
@@ -124,20 +141,29 @@ body{
 }
 .todoTask{
     display: flex ; 
+    justify-content: center;
+    align-items: center;
    
     font-size: 20px;
     padding: 20px;
+    /* color  : red  ; */
+    /* text-decoration: line-through; */
     
    
 }
+.check{
+    width : 20px ; 
+    height:20px;
+}
 .todoTask button{
-    width:40%;
+    width:90%;
     height:30px;
     border: 0;
     outline: 0;
     background-color: rgb(208, 208, 243);
     border-radius: 12px;
     cursor: pointer;
+    /* text-decoration: line-through; */
     /* width:50px; */
 }
 i:hover{
@@ -202,3 +228,14 @@ i{
 }
 
 
+
+#dueDate{
+    display : flex ; 
+    justify-content: space-between;
+    width:60%;
+}
+#dueDate input{
+    width : 45%;
+    
+    
+}

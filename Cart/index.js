@@ -15,7 +15,7 @@ if( !purchasedItems  ){
 purchasedItems = JSON.parse(localStorage.getItem("purchasedItems")) ; 
 
 console.log( data ) ; 
-console.log( purchasedItems ); 
+console.log( "purchasedItems",purchasedItems ); 
 for( let ind = 0 ; ind < data.length ; ind++  ){
 
    const ele = data[ind] ;
