@@ -1,0 +1,46 @@
+
+#container{
+    width:100vw;
+    height : 100vh ; 
+    background-color: rgb(243, 233, 214);
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.login{
+    display: flex ; 
+    
+    flex-direction: column ;
+    gap:20px ; 
+    width:500px;
+    height:fit-content;
+    position:absolute;
+    top:0; right:0 ; left:0 ; bottom: 0; 
+    margin:auto; 
+    padding:20px  ; 
+    border:2px solid black;
+    justify-content: left;
+    background-color: rgb(244, 186, 244);
+    border:2px solid black;
+    border-radius: 20px;
+    padding:20px;
+}
+input{
+    height: 30px ;
+    padding:5px ; 
+    outline:0;
+    border-radius: 10px;
+    border:0;
+
+}
+button{
+    height : 40px ; 
+    padding:5px ; 
+    border-radius: 10px;
+    outline:0;
+    border:0;
+  
+}
+
+
+

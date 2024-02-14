@@ -1,0 +1,153 @@
+
+*{
+    margin:0 ; 
+    padding:0 ; 
+    box-sizing: border-box;
+}
+#left{
+    width:30%; 
+    border:2px solid black ; 
+    border-right:0;
+    height:100% ;
+    display: flex ;
+    flex-direction: column;
+    gap:40px ;  
+    padding:10px ;
+}
+#right{
+    width:70%;
+    border  : 2px solid black ; 
+    height:100% ; 
+    display:flex  ; 
+    flex-direction: column;
+    gap:15px;
+    /* justify-content: center; */
+    align-items: center;
+}
+#container{
+    display : flex ; 
+    height : 100vh ; 
+    padding:2px  ;
+}
+#admin{
+    margin-bottom:50px;
+}
+#user{
+    cursor  : pointer ; 
+}
+#age{
+    display : flex ; 
+    justify-content: center;
+    gap:20px ; 
+
+}
+#age div{
+    padding:20px;
+    padding-left: 40px;
+    padding-right:40px ; 
+    border : 2px solid black ; 
+    width:30% ; 
+}
+#board{
+    font-weight: bold;
+    margin:20px;
+}
+.birthday{
+    text-align: center;
+    margin-top:50px ; 
+    font-weight: bold ;
+    text-wrap: wrap;
+}
+
+
+#timings{
+    border:2px solid black;
+    border-radius: 12px;
+    padding:15px;
+}
+#showBookings{
+    font-size:15px;
+    padding:10px;
+    border-radius: 12px;
+    border: 1px solid black;
+    outline:0;
+}
+#showSlots{
+    font-size:15px;
+    padding:10px;
+    border-radius: 12px;
+    border: 1px solid black;
+    outline:0;
+}
+.bookings{
+    margin-top: 20px;
+    padding:10px;
+    border:2px solid black;
+    border-radius: 5px;
+    width:60%;
+    font-size:20px;
+}
+.book{
+padding:10px;
+border-radius:10px;
+border:1px solid black;
+margin:5px;
+background-color: rgb(170, 236, 170);
+}
+#confirm{
+   
+    border-radius:10px;
+    border:1px solid black;
+    margin:5px;
+    border-radius: 10px;
+    padding:5px;
+
+}
+button{
+    background-color: rgb(244, 186, 244);
+    border:0;
+    font-weight:bold;
+
+}
+#rconfirm{
+    padding:5px;
+    border-radius:10px;
+    border:1px solid black;
+    margin:5px;
+}
+.cancel{
+    padding:10px;
+    border-radius:10px;
+    border:1px solid black;
+    margin:5px;
+    background-color: rgb(245, 177, 177);
+    }
+    .reschedule{
+        padding:5px;
+        border-radius:10px;
+        border:1px solid black;
+        margin:5px;
+    }
+    #reschedule{
+        position : absolute ; 
+        z-index:10 ; 
+        top:0;
+        right:0;
+        left:0;bottom:0;
+        margin:auto;
+        
+        width:200px ;
+        height : fit-content; 
+        display:none ;
+        
+    }
+    #black{
+        position:absolute ; 
+        background-color: black;
+        width:100vw; 
+        height:100vh ; 
+        opacity:0.3;
+        z-index:5;
+        top:0;
+        display:none ; 
+    }

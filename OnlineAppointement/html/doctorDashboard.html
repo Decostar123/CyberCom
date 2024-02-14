@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoctorDashboard</title>
+   <link rel="stylesheet" href="../css/doctorDashboard.css">
+</head>
+<body>
+    <div id="container">
+        <div id="left">
+            <p id="admin">Hello Doctor, <span id="adminName">User</span></p>
+
+            <p id="dashboard">Dashboard</p>
+            <div id="timings">
+                <p id="slot">Add Extra Slot </p>
+                <br>
+                <p>From</p>
+            <select name="from" id="from">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+
+            </select>
+            <select name="fromTime" id="fromTime">
+                <option value="am">am</option>
+                <option value="pm">pm</option>
+            </select>
+            <p>To</p>
+            <select name="to" id="to">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <select name="toTime" id="toTime">
+                <option value="am">am</option>
+                <option value="pm">pm</option>
+            </select>
+            <br>
+            <br>
+            <button id="confirm">Confirm</button>
+            </div>
+            
+            <button id="showBookings">Show Schedule Appointments</button>
+
+            <button id="showSlots">Show My Reserved  Slots </button>
+        </div>
+        <div id="right">
+           
+            <!-- <div class="bookings">
+                <label>Name:</label> <label>Decostar</label>
+                <br>
+                <label>Status:</label> <labekl>Pending</label>
+                <br>
+                <br>
+                <button class="book">Accept</button> <button class="cancel">Reject</button>
+            </div>
+            <div class="bookings">
+                <label>From:</label> <label>23</label>
+                <br>
+                <label>To:</label> <labekl>uy</label>
+               
+            </div> -->
+          
+        </div>
+            
+
+    
+    </div>
+    <div id="black"></div>
+
+    <div id="reschedule">
+                    <p id="slot">Add Rescheduled Timings </p>
+                    <br>
+                    <p>From</p>
+                <select name="rfrom" id="rfrom">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+
+                </select>
+                <select name="rfromTime" id="rfromTime">
+                    <option value="am">am</option>
+                    <option value="pm">pm</option>
+                </select>
+                <p>To</p>
+                <select name="rto" id="rto">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <select name="rtoTime" id="rtoTime">
+                    <option value="am">am</option>
+                    <option value="pm">pm</option>
+                </select>
+                <br>
+                <br>
+                <button id="rconfirm">Confirm</button>
+    </div>
+    <script src="../js/doctorDashboard.js" > </script>
+    
+    
+</body>
+</html>
