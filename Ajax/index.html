@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button1">Click1</button>
+    <br>
+    <br>
+    <button id="button2">Click2</button>
+    <br>
+    <br>
+    <button id="button3">Click3</button>
+    <br>
+    <br>
+    <button id="button4">Click4</button>
+    <br>
+    <br>
+    <button id="button5">Click5</button>
+    <br>
+    <br>
+
+</body>
+<script>
+            document.querySelector("#button1").addEventListener('click' , ()=>{
+                    const req = new XMLHttpRequest();
+
+                    
+                    req.onreadystatechange = ()=>{
+                        if( req.status === 200 && req.readyState === 4 ){
+                            alert( req.response ) ; 
+                            const ans = JSON.parse( req.response ) ;
+                            alert( ans ) ; 
+                        }
+                    }
+                   
+                    req.open('gET', 'http://localhost:3000/?a=5');
+                    req.send();
+            })
+            document.querySelector("#button2").addEventListener('click' , ()=>{
+                    const req = new XMLHttpRequest();
+
+                    
+                    req.onreadystatechange = ()=>{
+                        if( req.status === 200 && req.readyState === 4 ){
+                            // alert( req.response ) ; 
+                            const ans = JSON.parse( req.response ) ;
+                            console.log( ans ) ; 
+                        }
+                    }
+
+                    const body = { name : 'deco'};
+                    
+                    req.open('POST', 'http://localhost:3000/method' ,  true );
+                    req.setRequestHeader('Content-Type', 'application/json');
+
+                    req.send(JSON.stringify(body));
+            })
+
+
+            document.querySelector("#button2").addEventListener('click' , ()=>{
+                    const req = new XMLHttpRequest();
+
+                    
+                    req.onreadystatechange = ()=>{
+                        if( req.status === 200 && req.readyState === 4 ){
+                            // alert( req.response ) ; 
+                            const ans = JSON.parse( req.response ) ;
+                            console.log( ans ) ; 
+                        }
+                    }
+
+                    const body = { name : 'deco'};
+                    
+                    req.open('POST', 'http://localhost:3000/method' ,  true );
+                    req.setRequestHeader('Content-Type', 'application/json');
+
+                    req.send(JSON.stringify(body));
+            })
+
+</script>
+</html>
