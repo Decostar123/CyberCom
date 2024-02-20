@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <input type="number" id="fetchNumber">
+        <button id="fetch">Fecth</button>
+        <div id="fetchedData">
+
+        </div>
+
+    </div>
+    <br>
+    <div>
+        <input  id="postNumber">
+        <button id="post">POST</button>
+        <div id="postData">
+
+        </div>
+        
+    </div>
+    <br>
+    <div>
+        <input  type="number" id="deleteNumber">
+        <button id="delete">Delete</button>
+        <div id="deleteData">
+
+        </div>
+        
+    </div>
+</body>
+<script>
+    document.querySelector("#fetch").addEventListener("click" , ()=>{
+        const req = new XMLHttpRequest() ; 
+
+        const num = document.querySelector("#fetchNumber").value  ; 
+        req.onreadystatechange = ()=>{
+            if( req.status === 200 && req.readyState === 4 ){
+                            // alert( req.response ) ; 
+                            const ans = JSON.parse( req.response ) ;
+                            console.log( ans ) ; 
+                           document.querySelector("#fetchedData").innerHTML = `
+                           <p>ID : ${ans.id}</p>
+                           <p>TITLE : ${ans.title}</p>
+                           <p>BODY : ${ans.body}</p>
+                           `
+
+            }
+        }
+        req.open("get" , "https://dummyjson.com/posts/" + num) ; 
+        req.send() ;  
+    })
+   
+
+    document.querySelector("#post").addEventListener("click" , ()=>{
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://dummyjson.com/posts/add");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        const data = document.querySelector("#postNumber").value ; 
+        console.log( data ) ; 
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                const ans  = JSON.parse(xhr.responseText);
+                // console.log("anss" , ans ) ; 
+                document.querySelector("#postData").innerHTML = `
+                           <p>ID : ${ans.id}</p>
+                           <p>TITLE : ${ans.title}</p>
+                           <p>userID : ${ans.userId}</p>
+                           `
+                
+             } else {
+                console.error("Error:", xhr.status, xhr.statusText);
+            }
+            }
+        };
+var postData = {
+    title: data ,
+    userId: 5,
+    /* other post data */
+};
+
+
+   
+xhr.send(JSON.stringify(postData));
+  
+    })
+    document.querySelector("#delete").addEventListener("click" , ()=>{
+        const req = new XMLHttpRequest() ; 
+        // alert("hi")
+        const num = document.querySelector("#deleteNumber").value  ; 
+        // alert(num)
+        req.onreadystatechange = ()=>{
+            if( req.status === 200 && req.readyState === 4 ){
+                            // alert( req.response ) ; 
+                            const ans = JSON.parse( req.response ) ;
+                            console.log( ans ) ; 
+                           document.querySelector("#deleteData").innerHTML = `
+                           <p>ID : ${ans.id}</p>
+                           <p>TITLE : ${ans.title}</p>
+                           <p>BODY : ${ans.body}</p>
+                           `
+
+            }
+        }
+        req.open("delete" , "https://dummyjson.com/posts/" + num , true ) ; 
+        req.send() ;  
+    })
+</script>
+</html>
