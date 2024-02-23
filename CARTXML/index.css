@@ -78,17 +78,26 @@
     border-bottom-right-radius: 120px;
     outline : 0 ;   
     padding:5px;
+    padding-left: 20px;
     border:1px solid black;
+    color : green;
+    font-weight: bold;
+    font-size: 20px;
+    border:0;
   }
   ::placeholder {
-    color: red;
+    color: green;
     opacity: 1; /* Firefox */
+    /* font-weight: bold; */
+    font-weight: 300;
+    font-size: 20px;
   }
   #search{
     display:flex;
     justify-content: center;
     margin-top:2vh;
     margin-bottom:2vh;
+    
   }
 
   #items{
@@ -192,4 +201,170 @@
   #range{
     width:90%;
   }
+ #addNew{
+  width:60%;
+  height : 30px ;
+  outline : 0 ; 
+  border-radius:12px ;
+  background-color: black;
+  color : white ;
+  border : 0 ; 
+  box-shadow: white  0px 2px 8px 0px;
+  
+
+  /* box-shadow: white 0px 1px 3px 0px,white 0px 0px 0px 1px; */
+ }
+
+ #newProduct{
+  position: absolute;
+  display: none ; 
+  flex-direction: column ; 
+  justify-content: center;
+  align-items: center;
+  z-index: 10; 
+  
+  gap:20px;
+  border : 1px solid white ; 
+  width:20% ; 
+  height : 50%;
+  top:20% ; 
+  left : 40%;
+  padding:10px;
+  border-radius: 12px;
+  /* display : none ;  */
+  /* padding-top: 20px;
+  padding-bottom: 20px; */
+
+ }
+ #newProduct input{
+  color : black ;
+  height:40px ; 
+  padding:10px ; 
+  width:90%;
+  outline : 0 ; 
+  border-radius: 12px;
+  background-color: rgb(195, 195, 248) ;
+border:0;
+
+ }
+ #newProduct input::placeholder{
+  color: black;
+ }
+ #newProduct div{
+  width : 100%;
+  display: flex;
+  justify-content: space-around;
+ }
  
+ #deleteImage{
+  width:20px; 
+  height:20px;
+  position: absolute;
+  right : 0;
+  bottom:0;
+ }
+
+ .editButton{
+  position: absolute;
+  right:50px;
+  bottom:4px;
+  width:40px;
+  /* background-color:green ; */
+  border : 1px solid green; 
+  padding:2px;
+  color : green ;
+  border-radius: 12px;
+  /* border : 0 ;  */
+  outline:0;
+ }
+ .editButton:hover{
+  background-color: green;
+  color: white;
+ }
+
+
+
+
+ 
+ #editProduct{
+  position: absolute;
+  display: none ; 
+  flex-direction: column ; 
+  justify-content: center;
+  align-items: center;
+  z-index: 10; 
+  
+  gap:20px;
+  border : 1px solid white ; 
+  width:20% ; 
+  height : 50%;
+  top:20% ; 
+  left : 40%;
+  padding:10px;
+  border-radius: 12px;
+  /* display : none ;  */
+  /* padding-top: 20px;
+  padding-bottom: 20px; */
+
+ }
+ #editProduct input{
+  color : black ;
+  height:40px ; 
+  padding:10px ; 
+  width:90%;
+  outline : 0 ; 
+  border-radius: 12px;
+  background-color: rgb(195, 195, 248) ;
+  border:0;
+
+
+ }
+ #editProduct input::placeholder{
+  color: black;
+ }
+ #editProduct div{
+  width : 100%;
+  display: flex;
+  justify-content: space-around;
+ }
+
+
+
+
+
+
+
+
+ 
+ #ADD{
+  background-color: rgb(137, 230, 137);
+  padding:5px ; 
+  border-radius : 12px ;
+  border : 0 ;  
+  width:30%;
+ }
+ #EDIT{
+  background-color: rgb(137, 230, 137);
+  padding:5px ; 
+  border-radius : 12px ;
+  border : 0 ;  
+  width:30%;
+
+
+ }
+ #CANCELEDIT{
+  background-color: rgb(242, 140, 140);
+  padding : 5px ; 
+  border-radius: 12px ;
+  border : 0 ; 
+  width:30%;
+ }
+ 
+ #CANCEL{
+  background-color: rgb(242, 140, 140);
+  padding : 5px ; 
+  border-radius: 12px ;
+  border : 0 ; 
+  width:30%;
+ }
+
