@@ -1,0 +1,388 @@
+*{
+    padding : 0 ; 
+    margin:0 ; 
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#page{
+  margin-top:20px;
+  display : flex ; 
+  justify-content: center ;
+  width:100%;
+  /* background-color: red ; */
+  
+}
+#innerPage{
+  width:20% ; 
+  display: flex;
+  justify-content: space-between;
+}
+
+#box{
+    display : flex ;
+}
+#left{
+    width:20vw ; 
+    height : 100vh ; 
+    background-color: rgb(244, 68, 244);
+    display : flex ; 
+    justify-content: center;
+}
+#right{
+    width : 80vw ; 
+    height : 100vh ; 
+    overflow:scroll;
+    background-color: rgb(250, 225, 225);
+
+    /* background-color: red ;  */
+}
+
+#black{
+    background-color: black;
+    width: 100vw  ;
+    height : 100vh ; 
+    position : absolute ; 
+    top:0 ; 
+    left : 0 ; 
+    z-index:5 ; 
+    opacity : 0.9 ;
+    /* display:none; */
+
+}
+
+.loader {
+  /* display:none; */
+    border: 11px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    position : absolute  ; 
+    z-index: 10;
+    /* margin:auto ;   */
+   top:50%;
+   left:50%;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  #searchText{
+    width:400px;
+    height:6vh;
+    border-top-left-radius: 120px;
+    border-top-right-radius: 120px;
+    border-bottom-left-radius: 120px;
+    border-bottom-right-radius: 120px;
+    outline : 0 ;   
+    padding:5px;
+    padding-left: 20px;
+    border:1px solid black;
+    color : green;
+    font-weight: bold;
+    font-size: 20px;
+    border:0;
+  }
+  ::placeholder {
+    color: green;
+    opacity: 1; /* Firefox */
+    /* font-weight: bold; */
+    font-weight: 300;
+    font-size: 20px;
+  }
+  #search{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:2vh;
+    margin-bottom:2vh;
+    
+  }
+  #search img{
+    width:30px ;
+    height : 30px ;
+
+  }
+
+  #items{
+   
+    width:80vw;
+    height:92vh;
+  }
+  .box img{
+    width:300px;
+    height:200px;
+    border-radius: 12px;
+    margin:5px;
+    margin-top:10px;
+
+
+  }
+  .box{
+    display : flex ; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height : fit-content; 
+    width:30%;
+    background-color: rgb(244, 243, 241);
+    
+    border-radius:12px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding-top:5px ; 
+    padding-bottom:5px ; 
+    margin-top:30px;
+  }
+  .title{
+    margin:5px;
+    height:20px;
+    overflow: hidden;
+  }
+  .price{
+    width:90%;
+    text-align: left;
+    margin:5px 0;
+  }
+  .rating{
+    width:90%;
+    text-align : left ;
+  }
+  .box{
+    
+  }
+  .description{
+    margin-top:5px;
+    width:95%;
+    height:35px;
+    overflow: hidden;
+    text-align-last: center;
+    
+  }
+  #leftBox{
+    width : 80% ; 
+    height:fit-content; 
+    background-color: black;
+    margin-top:100px;
+    border-radius: 12px;
+  }
+  #range{
+    margin-top:5px;
+  }
+
+  #items{
+    display : flex ; 
+    flex-wrap: wrap;
+    justify-content: space-evenly ;
+  }
+
+  .bx{
+    /* margin-right:200px; */
+    font-size:50px;
+    color : rgb(98, 98, 228) ; 
+  }
+  .bx:hover{
+    scale:1.2;
+    color:blue;
+  }
+
+  label{
+    color : white  ;
+  }
+
+  #leftBox div{
+    /* text-align: center ; */
+  }
+
+  #leftBox{
+    padding-top: 20px;
+    padding-left:20px;
+    display : flex ; 
+    flex-direction: column;
+    gap:20px;
+    padding-bottom: 20px;
+  }
+
+  #range{
+    width:90%;
+  }
+ #addNew{
+  width:60%;
+  height : 30px ;
+  outline : 0 ; 
+  border-radius:12px ;
+  background-color: black;
+  color : white ;
+  border : 0 ; 
+  box-shadow: white  0px 2px 8px 0px;
+  
+
+  /* box-shadow: white 0px 1px 3px 0px,white 0px 0px 0px 1px; */
+ }
+ #editProductID{
+  width:60%;
+  height : 30px ;
+  outline : 0 ; 
+  border-radius:12px ;
+  background-color: black;
+  color : white ;
+  border : 0 ; 
+  box-shadow: white  0px 2px 8px 0px;
+ }
+
+ #newProduct{
+  position: absolute;
+  display: flex ; 
+  flex-direction: column ; 
+  justify-content: center;
+  align-items: center;
+  z-index: 10; 
+  
+  gap:20px;
+  /* border : 1px solid black ;  */
+  width:20% ; 
+  height : 50%;
+  top:20% ; 
+  left : 40%;
+  padding:10px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  /* display : none ;  */
+  /* padding-top: 20px;
+  padding-bottom: 20px; */
+
+ }
+ #newProduct input{
+  color : black ;
+  height:40px ; 
+  padding:10px ; 
+  width:90%;
+  outline : 0 ; 
+  border-radius: 12px;
+  background-color: rgb(227, 227, 250) ;
+border:0;
+
+ }
+ #newProduct input::placeholder{
+  color: black;
+ }
+ #newProduct div{
+  width : 100%;
+  display: flex;
+  justify-content: space-around;
+ }
+ 
+ #deleteImage{
+  width:20px; 
+  height:20px;
+  position: absolute;
+  right : 0;
+  bottom:0;
+ }
+
+ .editButton{
+  position: absolute;
+  right:50px;
+  bottom:4px;
+  width:40px;
+  /* background-color:green ; */
+  border : 1px solid green; 
+  padding:2px;
+  color : green ;
+  border-radius: 12px;
+  /* border : 0 ;  */
+  outline:0;
+ }
+ .editButton:hover{
+  background-color: green;
+  color: white;
+ }
+
+
+
+
+ 
+ #editProduct{
+  position: absolute;
+  display: flex  ; 
+  flex-direction: column ; 
+  justify-content: center;
+  align-items: center;
+  z-index: 10; 
+  
+  gap:20px;
+  border : 1px solid white ; 
+  width:20% ; 
+  height : 50%;
+  top:20% ; 
+  left : 40%;
+  padding:10px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  /* display : none ;  */
+  /* padding-top: 20px;
+  padding-bottom: 20px; */
+
+ }
+ #editProduct input{
+  color : black ;
+  height:40px ; 
+  padding:10px ; 
+  width:90%;
+  outline : 0 ; 
+  border-radius: 12px;
+  background-color: rgb(195, 195, 248) ;
+  border:0;
+
+
+ }
+ #editProduct input::placeholder{
+  color: black;
+ }
+ #editProduct div{
+  width : 100%;
+  display: flex;
+  justify-content: space-around;
+ }
+
+
+
+
+
+
+
+
+ 
+ #ADD{
+  background-color: rgb(137, 230, 137);
+  padding:5px ; 
+  border-radius : 12px ;
+  border : 0 ;  
+  width:30%;
+ }
+ #EDIT{
+  background-color: rgb(137, 230, 137);
+  padding:5px ; 
+  border-radius : 12px ;
+  border : 0 ;  
+  width:30%;
+
+
+ }
+ #CANCELEDIT{
+  background-color: rgb(170, 170, 229) ;
+  padding : 5px ; 
+  border-radius: 12px ;
+  border : 0 ; 
+  width:30%;
+ }
+ 
+ #CANCEL{
+  background-color: rgb(170, 170, 229) ;
+  padding : 5px ; 
+  border-radius: 12px ;
+  border : 0 ; 
+  width:30%;
+ }
+
