@@ -32,7 +32,9 @@ document.querySelector("#editProduct").addEventListener('submit' , (e)=>{
     .then(res => res.json())
     .then( res =>{
         console.log( res )
-        alert("Editedsuccessfully")
+        alert("Editedsuccessfully") ; 
+        document.querySelector("#editProduct").reset() ; 
+
         
     }).
     catch( err =>alert("error ocuured !! try again later "))
