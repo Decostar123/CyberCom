@@ -1,4 +1,5 @@
 
+-- use task ;
 drop table if exists Salaries ; 
 drop table if exists Employees ; 
 drop table if exists Departments ; 
@@ -45,7 +46,9 @@ INSERT INTO Employees (employee_id, name, department_id, salary) VALUES
 (7, 'David Davis', 3, 63000.00),
 (8, 'Sarah Miller', 2, 59000.00),
 (9, 'James Wilson', 1, 54000.00),
-(10, 'Anna Taylor', 3, 64000.00);
+(10, 'Anna Taylor', 3, 64000.00) , 
+( 11 , 'Deco' , 1 ,  20000.00 ) , 
+(12  , 'DecoStsr' , 3 , 20000) ; 
 
 -- Insert values into the Salaries table
 INSERT INTO Salaries (salary_id, employee_id, salary, date) VALUES
@@ -75,3 +78,14 @@ group by b.department_id order by  b.department_id    ;
 -- 4 
 
 -- Calculate the limit using a subquery
+
+select * from Employees a 
+join ( select count(distinct(b.salary )   ) as total_count
+ from Employees b ) c  where  ceil( total_count*0.1 )  > 
+ (  select count(distinct(d.salary ) ) from Employees d where d.salary > a.salary )     ; 
+
+
+-- 5 
+
+
+select max(b.date) as latest_salry_date , a.name , a.salary from Employees a join Salaries b on a.employee_id = b.employee_id group by b.employee_id;
