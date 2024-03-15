@@ -1,12 +1,14 @@
 use task   ; 
 -- 0	33	16:19:19	drop table if exists orders	Error Code: 3730. Cannot drop table 'orders' referenced by a foreign key constraint 'product_returns_ibfk_1' on table 'product_returns'.	0.000 sec
-alter table product_returns drop foreign key product_returns_ibfk_1 ; 
+-- alter table product_returns drop foreign key product_returns_ibfk_1 ; -- 
+drop table if exists category ; 
 drop table if exists orders ; 
 drop table if exists product_returns ;
 drop table if exists orders ; 
  drop table if exists users ; 
  drop table if exists orders ; 
- drop table if exists product ;  
+ drop table if exists product ;
+ 
 -- Create the "orders" table
 CREATE TABLE users (
     user_id INT PRIMARY KEY,
@@ -16,11 +18,16 @@ CREATE TABLE users (
     user_city varchar(100) 
   
 );
-
+CREATE TABLE category (
+    category_id INT PRIMARY KEY,
+    category_name VARCHAR(255) 
+    
+);
 CREATE TABLE product (
     product_id INT PRIMARY KEY,
     product_name VARCHAR(255) , 
-    product_price int 
+    product_price int , 
+    category_id int references category(category_id) 
 );
 CREATE TABLE orders (
     order_id INT PRIMARY KEY,
@@ -30,13 +37,20 @@ CREATE TABLE orders (
     user_id int , 
      FOREIGN KEY (product_id) REFERENCES product(product_id)
 );
-INSERT INTO product (product_id, product_name , product_price) VALUES
-(1, 'Laptop' , 20 ),
-(2, 'Smartphone' , 30),
-(3, 'Tablet' , 40),
-(4, 'TV', 50),
-(5, 'Headphones' , 60 ) , 
-(6, 'TShirt' , 150 ) 
+INSERT INTO category (category_id, category_name) VALUES
+(1, 'Electronics'),
+(2, 'Clothing'),
+(3, 'Books'),
+(4, 'Home and Kitchen');
+
+
+INSERT INTO product (product_id, product_name , product_price , category_id ) VALUES
+(1, 'Laptop' , 20 ,1 ),
+(2, 'Smartphone' , 30 ,1 ),
+(3, 'Tablet' , 40 ,1 ),
+(4, 'TV', 50 , 1 ),
+(5, 'Headphones' , 60 , 2) , 
+(6, 'TShirt' , 150 , 2 ) 
 ;
 INSERT INTO users (user_id, user_name, user_email, user_city ) VALUES
 (1, 'John Doe', 'john@example.com',"USA"),
@@ -116,8 +130,9 @@ select   b.user_name from orders a join users b  on a.user_id= b.user_id  where 
 -- Write a SQL query to retrieve the names of all customers who have made
 -- orders in the "orders" table and have not returned more items than they have ordered.
 
--- ERROR IN THE CODE 
--- select a.user_id , count(a.user_id) as products_ordered
+-- ERROR IN THE CODE , NEED TO INCLUDE THE MAIN FIELD OUTSIDE IF WANT TO USE IT INSIDE 
+-- OR JUST MODIFY THE CODE 
+-- select a.user_id , count(a.user_id) as products_ordered 
 --  from orders a group by a.user_id 
 --  having count(a.user_id) > ( select count(b.order_id) from product_returns b  where b.order_id = a.order_id  )   ; 
 
@@ -161,4 +176,48 @@ on a.product_id = b.product_id
  group by u.user_id  having total_order_price > 100 
  order by total_order_price desc 
  ; 
+  -- 8
+ -- Write a SQL query to retrieve the names of all customers who have made orders
+ -- in the "orders" table and have ordered products in all categories.
+ select * from orders ;
+ -- select * from orders  ; 
+ select * from product  ; 
+ -- select * from categories ; 
+ select    a.user_id , b.user_name 
+ from
+ orders a join users b
+ on a.user_id = b.user_id  
+ join product p on a.product_id = p.product_id 
+ join category c  on p.category_id = c.category_id 
+ group by a.user_id
+ having count(  distinct  p.category_id ) =  (  select count(*) from category )    ; 
+ 
+
+  
+-- 9.	
+-- Write a SQL query to retrieve the names of all customers who have made orders in the "orders" table
+--  and have not ordered products in all categories.
+select    a.user_id , b.user_name 
+ from
+ orders a join users b
+ on a.user_id = b.user_id  
+ join product p on a.product_id = p.product_id 
+ join category c  on p.category_id = c.category_id 
+ group by a.user_id
+ having count(  distinct  p.category_id ) <  (  select count(*) from category )    ; 
+ 
+
+ 
+ -- 10 
+ -- Write a SQL query to retrieve the names of all customers who have made orders in the "orders" 
+ -- table and have ordered products in at least two different categories.
+ select    a.user_id , b.user_name 
+ from
+ orders a join users b
+ on a.user_id = b.user_id  
+ join product p on a.product_id = p.product_id 
+ join category c  on p.category_id = c.category_id 
+ group by a.user_id
+ having count(   distinct p.category_id ) >= 2     ; 
+ 
  
